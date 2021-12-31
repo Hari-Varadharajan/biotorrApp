@@ -1,1 +1,35 @@
-<p>signup works!</p>
+<div class="container">
+    <div class="card mx-auto mt-5" style="width: 20rem">
+      <div class="card-header">Register</div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">User name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="registeredUserData.username"
+            id="formGroupExampleInput"
+            placeholder="Example input placeholder"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Password</label>
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="registeredUserData.password"
+            class="form-control"
+            id="formGroupExampleInput2"
+            placeholder="Another input placeholder"
+          />
+        </div>
+        <div class="mb-3">
+          <button type="button" (click)="registerUser()" class="btn btn-primary">
+            Register
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
