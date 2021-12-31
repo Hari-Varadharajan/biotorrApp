@@ -1,0 +1,72 @@
+.box {
+  height: 70%;
+  width: 70%;
+  margin: auto;
+  margin-top: 2%;
+  /* background-color: aqua !important; */
+}
+.box .col-md {
+  border-radius: 8px !important;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif !important;
+  background-color: #f2f2f2 !important;
+}
+.col-md p {
+  font-size: 12px;
+}
+p span {
+  font-size: 15px;
+}
+.logo {
+  color: black !important;
+}
+
+.col-md:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.col-md {
+  color: white;
+}
+.logo:hover {
+  box-shadow: none;
+}
+.col-md h2 {
+  text-align: left;
+}
+.con {
+  color: white;
+  text-align: left;
+}
+.val {
+  color: black;
+  background-color: white;
+  width: max-content;
+  padding: 5px;
+}
+.col-md:hover .val {
+  color: white;
+  background-color: black;
+  transition: all ease-in-out 0.5s;
+}
+.col-md:hover {
+  transition: all ease-in-out 0.5s;
+}
+
+.biotorr {
+  background-color: #e6cca9;
+  border-radius: 5px;
+  padding-top: 2px;
+  padding-bottom: 1px;
+  margin-bottom: 3px;
+}
+.logo:hover .biotorr {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transition: box-shadow ease-in-out 0.3s;
+}
+.col-md:hover .con span {
+  color: black !important;
+  transition: all ease-in-out 0.5s;
+}
