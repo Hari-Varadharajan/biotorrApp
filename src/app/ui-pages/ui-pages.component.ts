@@ -1,12 +1,19 @@
+import { state } from '@angular/animations';
 import { Component, OnInit, ElementRef } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-ui-pages',
   templateUrl: './ui-pages.component.html',
   styleUrls: ['./ui-pages.component.css'],
 })
 export class UiPagesComponent implements OnInit {
-  constructor(private elRef: ElementRef) {}
+  constructor(private elRef: ElementRef, private router: Router) {
+    const navigation = this.router.getCurrentNavigation();
+    const state = navigation?.extras.state as {
+      slide: number;
+    };
+    this.curSlide = state.slide;
+  }
   slides: any;
   btnRight = <HTMLElement>document.querySelector('.right');
   btnLeft = <HTMLElement>document.querySelector('.left');
@@ -19,7 +26,7 @@ export class UiPagesComponent implements OnInit {
     );
     this.slides = slides;
     this.MaxSlide = this.slides.length;
-    // this.moveSlide(this.curSlide);
+    this.moveSlide(this.curSlide);
     // this.btnRight.addEventListener('click', this.slideRight);
     // this.btnLeft.addEventListener('click', this.slideLeft);
   }
@@ -32,6 +39,11 @@ export class UiPagesComponent implements OnInit {
         this.slides[i].classList.remove(`s2-${i + 1}`);
         this.slides[i].classList.remove(`s3-${i + 1}`);
         this.slides[i].classList.remove(`s4-${i + 1}`);
+        this.slides[i].classList.remove(`s5-${i + 1}`);
+        this.slides[i].classList.remove(`s6-${i + 1}`);
+        this.slides[i].classList.remove(`s7-${i + 1}`);
+        this.slides[i].classList.remove(`s8-${i + 1}`);
+        this.slides[i].classList.remove(`s9-${i + 1}`);
       }
     } else if (cur == 1) {
       for (let i = 0; i < this.slides.length; i++) {
@@ -39,20 +51,95 @@ export class UiPagesComponent implements OnInit {
         this.slides[i].classList.remove(`s1-${i + 1}`);
         this.slides[i].classList.remove(`s3-${i + 1}`);
         this.slides[i].classList.remove(`s4-${i + 1}`);
+        this.slides[i].classList.remove(`s5-${i + 1}`);
+        this.slides[i].classList.remove(`s6-${i + 1}`);
+        this.slides[i].classList.remove(`s7-${i + 1}`);
+        this.slides[i].classList.remove(`s8-${i + 1}`);
+        this.slides[i].classList.remove(`s9-${i + 1}`);
       }
     } else if (cur == 2) {
       for (let i = 0; i < this.slides.length; i++) {
         this.slides[i].classList.add(`s3-${i + 1}`);
-        this.slides[i].classList.remove(`s1-${i + 1}`);
         this.slides[i].classList.remove(`s2-${i + 1}`);
+        this.slides[i].classList.remove(`s1-${i + 1}`);
         this.slides[i].classList.remove(`s4-${i + 1}`);
+        this.slides[i].classList.remove(`s5-${i + 1}`);
+        this.slides[i].classList.remove(`s6-${i + 1}`);
+        this.slides[i].classList.remove(`s7-${i + 1}`);
+        this.slides[i].classList.remove(`s8-${i + 1}`);
+        this.slides[i].classList.remove(`s9-${i + 1}`);
       }
     } else if (cur == 3) {
       for (let i = 0; i < this.slides.length; i++) {
         this.slides[i].classList.add(`s4-${i + 1}`);
-        this.slides[i].classList.remove(`s1-${i + 1}`);
         this.slides[i].classList.remove(`s2-${i + 1}`);
         this.slides[i].classList.remove(`s3-${i + 1}`);
+        this.slides[i].classList.remove(`s1-${i + 1}`);
+        this.slides[i].classList.remove(`s5-${i + 1}`);
+        this.slides[i].classList.remove(`s6-${i + 1}`);
+        this.slides[i].classList.remove(`s7-${i + 1}`);
+        this.slides[i].classList.remove(`s8-${i + 1}`);
+        this.slides[i].classList.remove(`s9-${i + 1}`);
+      }
+    } else if (cur == 4) {
+      for (let i = 0; i < this.slides.length; i++) {
+        this.slides[i].classList.add(`s5-${i + 1}`);
+        this.slides[i].classList.remove(`s2-${i + 1}`);
+        this.slides[i].classList.remove(`s3-${i + 1}`);
+        this.slides[i].classList.remove(`s4-${i + 1}`);
+        this.slides[i].classList.remove(`s1-${i + 1}`);
+        this.slides[i].classList.remove(`s6-${i + 1}`);
+        this.slides[i].classList.remove(`s7-${i + 1}`);
+        this.slides[i].classList.remove(`s8-${i + 1}`);
+        this.slides[i].classList.remove(`s9-${i + 1}`);
+      }
+    } else if (cur == 5) {
+      for (let i = 0; i < this.slides.length; i++) {
+        this.slides[i].classList.add(`s6-${i + 1}`);
+        this.slides[i].classList.remove(`s2-${i + 1}`);
+        this.slides[i].classList.remove(`s3-${i + 1}`);
+        this.slides[i].classList.remove(`s4-${i + 1}`);
+        this.slides[i].classList.remove(`s5-${i + 1}`);
+        this.slides[i].classList.remove(`s1-${i + 1}`);
+        this.slides[i].classList.remove(`s7-${i + 1}`);
+        this.slides[i].classList.remove(`s8-${i + 1}`);
+        this.slides[i].classList.remove(`s9-${i + 1}`);
+      }
+    } else if (cur == 6) {
+      for (let i = 0; i < this.slides.length; i++) {
+        this.slides[i].classList.add(`s7-${i + 1}`);
+        this.slides[i].classList.remove(`s2-${i + 1}`);
+        this.slides[i].classList.remove(`s3-${i + 1}`);
+        this.slides[i].classList.remove(`s4-${i + 1}`);
+        this.slides[i].classList.remove(`s1-${i + 1}`);
+        this.slides[i].classList.remove(`s6-${i + 1}`);
+        this.slides[i].classList.remove(`s5-${i + 1}`);
+        this.slides[i].classList.remove(`s8-${i + 1}`);
+        this.slides[i].classList.remove(`s9-${i + 1}`);
+      }
+    } else if (cur == 7) {
+      for (let i = 0; i < this.slides.length; i++) {
+        this.slides[i].classList.add(`s8-${i + 1}`);
+        this.slides[i].classList.remove(`s2-${i + 1}`);
+        this.slides[i].classList.remove(`s3-${i + 1}`);
+        this.slides[i].classList.remove(`s4-${i + 1}`);
+        this.slides[i].classList.remove(`s1-${i + 1}`);
+        this.slides[i].classList.remove(`s6-${i + 1}`);
+        this.slides[i].classList.remove(`s7-${i + 1}`);
+        this.slides[i].classList.remove(`s5-${i + 1}`);
+        this.slides[i].classList.remove(`s9-${i + 1}`);
+      }
+    } else if (cur == 8) {
+      for (let i = 0; i < this.slides.length; i++) {
+        this.slides[i].classList.add(`s9-${i + 1}`);
+        this.slides[i].classList.remove(`s2-${i + 1}`);
+        this.slides[i].classList.remove(`s3-${i + 1}`);
+        this.slides[i].classList.remove(`s4-${i + 1}`);
+        this.slides[i].classList.remove(`s1-${i + 1}`);
+        this.slides[i].classList.remove(`s6-${i + 1}`);
+        this.slides[i].classList.remove(`s7-${i + 1}`);
+        this.slides[i].classList.remove(`s8-${i + 1}`);
+        this.slides[i].classList.remove(`s5-${i + 1}`);
       }
     }
   }

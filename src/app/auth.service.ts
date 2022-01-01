@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { ObjectId } from 'mongoose';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  private user_id!: ObjectId;
   private _regUrl = 'http://localhost:3000/user/signup';
   private _loginUrl = 'http://localhost:3000/user/signin';
   private _logoutUrl = 'http://localhost:3000/user/signout';
@@ -32,5 +34,11 @@ export class AuthService {
   }
   public validate(user: object) {
     return this.http.post(this._loginUrl, user).toPromise();
+  }
+  public setUserId(user_id: ObjectId) {
+    this.user_id = user_id;
+  }
+  public getUserId() {
+    return this.user_id;
   }
 }

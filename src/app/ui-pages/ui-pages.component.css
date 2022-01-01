@@ -160,6 +160,8 @@ body {
     width: 20%;
     right: 30px;
     transition: transform ease-in-out 1s;
+    pointer-events: none;
+    cursor: default;
   }
 
   .s1-1 {
@@ -183,11 +185,30 @@ body {
     /* display: none; */
     transform-style: preserve-3d;
     transition: all ease-in-out 1s;
+    pointer-events: none;
+    cursor: default;
   }
   .s1-4 {
     position: absolute;
     width: 20%;
     right: -400px;
+    display: none;
+  }
+  .s1-5 {
+    position: absolute;
+    display: none;
+  }
+  .s1-6 {
+    position: absolute;
+    display: none;
+  }
+  .s1-7 {
+    display: none;
+  }
+  .s1-8 {
+    display: none;
+  }
+  .s1-9 {
     display: none;
   }
 
@@ -243,7 +264,8 @@ body {
     position: absolute;
     transform: rotateY(40deg);
     width: 20%;
-
+    pointer-events: none;
+    cursor: default;
     transform-style: preserve-3d;
     transition: all ease-in 1s;
   }
@@ -254,6 +276,8 @@ body {
     right: 30px;
     transform-style: preserve-3d;
     transition: all ease-in-out 1s;
+    pointer-events: none;
+    cursor: default;
   }
 
   .s2-4 {
@@ -263,6 +287,26 @@ body {
     transition: all ease-in-out 1s;
     /* display: none; */
   }
+  .s2-5 {
+    position: absolute;
+    display: none;
+  }
+  .s2-6 {
+    position: absolute;
+    display: none;
+  }
+  .s2-7 {
+    position: absolute;
+    display: none;
+  }
+  .s2-8 {
+    position: absolute;
+    display: none;
+  }
+  .s2-9 {
+    position: absolute;
+    display: none;
+  }
 
   /*current slide 3*/
   .s3-2 {
@@ -271,6 +315,7 @@ body {
     transform: rotateY(40deg);
     width: 20%;
     transition: all ease-in-out 1s;
+    pointer-events: none;
   }
   .s3-1 {
     position: absolute;
@@ -281,6 +326,7 @@ body {
 
     transform-style: preserve-3d;
     transition: all ease-in-out 1s;
+    pointer-events: none;
   }
   .s3-3 {
     position: absolute;
@@ -298,6 +344,29 @@ body {
     transform: rotateY(-40deg);
     right: 30px;
     transition: all ease-in-out 1s;
+    pointer-events: none;
+  }
+  .s3-5 {
+    position: absolute;
+    width: 20%;
+    right: -400px;
+    transition: all ease-in-out 1s;
+  }
+  .s3-6 {
+    position: absolute;
+    display: none;
+  }
+  .s3-7 {
+    position: absolute;
+    display: none;
+  }
+  .s3-8 {
+    position: absolute;
+    display: none;
+  }
+  .s3-9 {
+    position: absolute;
+    display: none;
   }
   /*current slide 4*/
   .s4-2 {
@@ -306,6 +375,8 @@ body {
     /* display: none; */
     right: 1450px;
     width: 20%;
+    pointer-events: none;
+    cursor: default;
   }
   .s4-1 {
     position: absolute;
@@ -318,8 +389,279 @@ body {
     width: 20%;
     transform-style: preserve-3d;
     transition: all ease-in-out 1s;
+    pointer-events: none;
+    cursor: default;
   }
   .s4-4 {
+    position: absolute;
+    width: 20%;
+    transform: scale(1.5, 1.5) translate(25%, 30%);
+    transform-origin: center;
+    left: 400px;
+    transition: all ease-in-out 1s;
+  }
+  .s4-5 {
+    position: absolute;
+    width: 20%;
+    transform: rotateY(-40deg);
+    right: 30px;
+    transition: all ease-in-out 1s;
+    pointer-events: none;
+  }
+  .s4-6 {
+    position: absolute;
+    width: 20%;
+    right: -400px;
+    transition: all ease-in-out 1s;
+  }
+  .s4-7 {
+    position: absolute;
+    display: none;
+  }
+  .s4-8 {
+    position: absolute;
+    display: none;
+  }
+  .s4-9 {
+    position: absolute;
+    display: none;
+  }
+
+  /* current slide 5*/
+  .s5-5 {
+    position: absolute;
+    width: 20%;
+    transform: scale(1.5, 1.5) translate(25%, 30%);
+    transform-origin: center;
+    left: 400px;
+    transition: all ease-in-out 1s;
+  }
+  .s5-4 {
+    position: absolute;
+    transform: rotateY(40deg);
+    width: 20%;
+    transform-style: preserve-3d;
+    transition: all ease-in-out 1s;
+    pointer-events: none;
+    cursor: default;
+  }
+  .s5-3 {
+    position: absolute;
+    display: none;
+  }
+  .s5-1 {
+    position: absolute;
+    display: none;
+  }
+  .s5-2 {
+    position: absolute;
+    display: none;
+  }
+
+  .s5-6 {
+    position: absolute;
+    width: 20%;
+    transform: rotateY(-40deg);
+    right: 30px;
+    transition: all ease-in-out 1s;
+    pointer-events: none;
+  }
+  .s5-7 {
+    position: absolute;
+    width: 20%;
+    right: -400px;
+    transition: all ease-in-out 1s;
+  }
+  .s5-8,
+  .s5-9 {
+    position: absolute;
+    display: none;
+  }
+  /*current slide 6*/
+  .s6-5 {
+    position: absolute;
+    transform: rotateY(40deg);
+    width: 20%;
+    transform-style: preserve-3d;
+    transition: all ease-in-out 1s;
+    pointer-events: none;
+    cursor: default;
+  }
+  .s6-4 {
+    position: absolute;
+    display: none;
+  }
+  .s6-3 {
+    position: absolute;
+    display: none;
+  }
+  .s6-1 {
+    position: absolute;
+    display: none;
+  }
+  .s6-2 {
+    position: absolute;
+    display: none;
+  }
+
+  .s6-6 {
+    position: absolute;
+    width: 20%;
+    transform: scale(1.5, 1.5) translate(25%, 30%);
+    transform-origin: center;
+    left: 400px;
+    transition: all ease-in-out 1s;
+  }
+  .s6-7 {
+    position: absolute;
+    width: 20%;
+    transform: rotateY(-40deg);
+    right: 30px;
+    transition: all ease-in-out 1s;
+    pointer-events: none;
+  }
+  .s6-8 {
+    position: absolute;
+    width: 20%;
+    right: -400px;
+    transition: all ease-in-out 1s;
+  }
+  .s6-9 {
+    display: none;
+  }
+  /*current slide 7*/
+  .s7-5 {
+    display: none;
+  }
+  .s7-4 {
+    display: none;
+  }
+  .s7-3 {
+    display: none;
+  }
+  .s7-1 {
+    display: none;
+  }
+  .s7-2 {
+    display: none;
+  }
+
+  .s7-6 {
+    position: absolute;
+    transform: rotateY(40deg);
+    width: 20%;
+    transform-style: preserve-3d;
+    transition: all ease-in-out 1s;
+    pointer-events: none;
+    cursor: default;
+  }
+  .s7-7 {
+    position: absolute;
+    width: 20%;
+    transform: scale(1.5, 1.5) translate(25%, 30%);
+    transform-origin: center;
+    left: 400px;
+    transition: all ease-in-out 1s;
+  }
+  .s7-8 {
+    position: absolute;
+    width: 20%;
+    transform: rotateY(-40deg);
+    right: 30px;
+    transition: all ease-in-out 1s;
+    pointer-events: none;
+  }
+  .s7-9 {
+    position: absolute;
+    width: 20%;
+    right: -400px;
+    transition: all ease-in-out 1s;
+  }
+  /*current slide 8*/
+  .s8-5 {
+    display: none;
+  }
+  .s8-4 {
+    display: none;
+  }
+  .s8-3 {
+    display: none;
+  }
+  .s8-1 {
+    display: none;
+  }
+  .s8-2 {
+    display: none;
+  }
+
+  .s8-6 {
+    display: none;
+  }
+  .s8-7 {
+    position: absolute;
+    transform: rotateY(40deg);
+    width: 20%;
+    transform-style: preserve-3d;
+    transition: all ease-in-out 1s;
+    pointer-events: none;
+    cursor: default;
+  }
+  .s8-8 {
+    position: absolute;
+    width: 20%;
+    transform: scale(1.5, 1.5) translate(25%, 30%);
+    transform-origin: center;
+    left: 400px;
+    transition: all ease-in-out 1s;
+  }
+  .s8-9 {
+    position: absolute;
+    width: 20%;
+    transform: rotateY(-40deg);
+    right: 30px;
+    transition: all ease-in-out 1s;
+    pointer-events: none;
+  }
+  /*current slide 9*/
+  .s9-5 {
+    position: absolute;
+    display: none;
+  }
+  .s9-4 {
+    position: absolute;
+    display: none;
+  }
+  .s9-3 {
+    position: absolute;
+    display: none;
+  }
+  .s9-1 {
+    position: absolute;
+    display: none;
+  }
+  .s9-2 {
+    position: absolute;
+    display: none;
+  }
+
+  .s9-6 {
+    position: absolute;
+    display: none;
+  }
+  .s9-7 {
+    position: absolute;
+    display: none;
+  }
+  .s9-8 {
+    position: absolute;
+    transform: rotateY(40deg);
+    width: 20%;
+    transform-style: preserve-3d;
+    transition: all ease-in-out 1s;
+    pointer-events: none;
+    cursor: default;
+  }
+  .s9-9 {
     position: absolute;
     width: 20%;
     transform: scale(1.5, 1.5) translate(25%, 30%);
