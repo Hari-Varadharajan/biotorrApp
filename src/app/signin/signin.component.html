@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card mx-auto mt-5" style="width: 20rem; height: 20rem">
+  <div class="card mx-auto mt-5" style="width: 20rem">
     <div class="card-header"><h3>Login</h3></div>
     <div class="card-body">
       <div class="mb-3">
@@ -10,7 +10,19 @@
           name="username"
           [(ngModel)]="LoginUserData.username"
           id="formGroupExampleInput"
+          ngModel
+          required
+          #username="ngModel"
+          pattern="^[a-zA-z0-9-]+$"
         />
+        <div 
+            class="alert alert-warning"
+            *ngIf="!username.valid && username.touched">
+            <div *ngIf="username.errors?.pattern">* should not contain any special character/space</div>
+            <div *ngIf="username.errors?.required">* Username must not be empty</div>
+            <div *ngIf="username.errors?.maxlength">* should contain maximum of {{username.errors?.maxlength.requiredLength}} characters</div>
+            <div *ngIf="username.errors?.minlength">* should contain minimum of {{username.errors?.minlength.requiredLength}} characters</div>
+          </div>
       </div>
       <div class="mb-3">
         <label for="formGroupExampleInput2" class="form-label">Password</label>
@@ -20,7 +32,20 @@
           [(ngModel)]="LoginUserData.password"
           class="form-control"
           id="formGroupExampleInput2"
+          ngModel
+          required
+          #password="ngModel"
+          minlength="2"
+          maxlength="25"
+          pattern="^[a-zA-z0-9-]+$"
         />
+        <div 
+            class="alert alert-warning " 
+            *ngIf="password.touched && !password.valid">
+            <div *ngIf="password.errors?.minlength">* should contain minimum of {{password.errors?.minlength.requiredLength}} characters</div>
+            <div *ngIf="password.errors?.pattern">* should contain alpha-neumaeric with upper and lower case</div>
+            <div *ngIf="password.errors?.required">* Password must not be empty</div>
+        </div>
       </div>
       <div class="mb-3">
         <button type="button" (click)="LoginUser()" class="btn btn-primary">
