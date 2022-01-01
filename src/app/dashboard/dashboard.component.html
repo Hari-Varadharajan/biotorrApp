@@ -14,7 +14,7 @@
           class="val"
           style="font-size: 18px; border-radius: 3px; text-align: center"
         >
-          {{ values.ph }}
+          {{ values.ph | number: "2.1-2" }}
         </p>
         <p class="con" style="text-align: left">
           CONNECTION STATUS: <span style="color: #ff0000">✘ OFFLINE</span>
@@ -45,7 +45,7 @@
           class="val"
           style="font-size: 18px; border-radius: 3px; text-align: center"
         >
-          58<span class="unit"> NTU</span>
+          {{ values.turbidity | number: "2.1-2" }}<span class="unit"> NTU</span>
         </p>
         <p class="con" style="text-align: left">
           CONNECTION STATUS:

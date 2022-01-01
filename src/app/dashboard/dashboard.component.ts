@@ -8,14 +8,8 @@ import { Values } from '../Values';
 })
 export class DashboardComponent implements OnInit {
   constructor(private mqtt: MqttService) {}
-  values = {
-    ph: 7,
-    turbidity: 8,
-  };
+  values!: Values;
   ngOnInit(): void {
-    this.mqtt.getValues().subscribe(
-      (data) => (this.values = data),
-      (err) => console.log(err)
-    );
+    this.values = this.mqtt.values;
   }
 }
