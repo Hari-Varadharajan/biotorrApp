@@ -1,0 +1,12 @@
+.body
+{
+    background-image: url(src\assets\imgs\download.jfif);
+    height: auto;
+    display: flex;
+}
+.myalert{
+    color: crimson;
+}
+.igt{
+    background-color: white;
+}

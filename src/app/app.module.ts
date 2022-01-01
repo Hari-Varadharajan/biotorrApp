@@ -10,9 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
+import { ValidateEqualModule } from 'ng-validate-equal';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [AppComponent, DashboardComponent, UiPagesComponent, SignupComponent, SigninComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,ValidateEqualModule,NgbModule],
   providers: [AuthService],
   bootstrap: [AppComponent],
 })
