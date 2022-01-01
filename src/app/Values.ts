@@ -1,4 +1,4 @@
 export interface Values {
-  ph: number;
-  turbidity: number;
+  ph: {value:number,status:boolean};
+  turbidity: {value:number,status:boolean};
 }

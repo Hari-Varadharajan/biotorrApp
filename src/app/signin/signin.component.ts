@@ -8,6 +8,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
+  user: any;
   constructor(private auth: AuthService, private router: Router) {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation?.extras.state as {
@@ -25,6 +26,9 @@ export class SigninComponent implements OnInit {
     this.auth
       .validate(this.LoginUserData)
       .then((res) => {
+        this.user = res;
+        this.auth.setUserId(this.user.user_id);
+        //console.log(this.user.user_id);
         this.auth.setUserInfo({ user: this.LoginUserData.username });
         this.router.navigate(['dashboard']);
       })

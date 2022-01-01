@@ -6,15 +6,34 @@
 />
 
 <div class="box">
-  <div class="container pt-4 pb-4">
+  <div class="container pt-2 pb-4">
     <div class="row ms-md-5 pe-3">
-      <div class="col-md me-2 btn p-3" style="background-color: #9ae66e">
-        <h2>pH</h2>
+      <div
+        class="col-md me-2 btn p-3"
+        (click)="uipage(0)"
+        style="background-color: #34be82"
+      >
+        <!-- agitation -->
+        <h2>AGITATION</h2>
         <p
           class="val"
           style="font-size: 18px; border-radius: 3px; text-align: center"
         >
-          {{ values.ph | number: "2.1-2" }}
+          25<span class="unit"> RPM</span>
+        </p>
+      </div>
+      <div
+        class="col-md me-2 btn p-3"
+        style="background-color: #e6e46e"
+        (click)="uipage(1)"
+      >
+        <!-- ph -->
+        <h2>AQI</h2>
+        <p
+          class="val"
+          style="font-size: 18px; border-radius: 3px; text-align: center"
+        >
+          {{ values.ph.value | number: "2.1-2" }}
         </p>
         <p class="con" style="text-align: left">
           CONNECTION STATUS: <span style="color: #ff0000">✘ OFFLINE</span>
@@ -22,14 +41,16 @@
       </div>
       <div
         class="col-md me-2 mt-3 mt-md-0 btn p-3"
-        style="background-color: #dd4a48"
+        style="background-color: #d8b6a4"
+        (click)="uipage(2)"
       >
-        <h2>TEMPERATURE</h2>
+        <!-- cooling fan -->
+        <h2>COOLING FAN</h2>
         <p
           class="val"
           style="font-size: 18px; border-radius: 3px; text-align: center"
         >
-          25
+          25<span class="unit"> °C</span>
         </p>
         <p class="con" style="text-align: left">
           CONNECTION STATUS:
@@ -38,32 +59,32 @@
       </div>
       <div
         class="col-md me-2 mt-3 mt-md-0 btn p-3"
-        style="background-color: #ff7800"
-      >
-        <h2>TURBIDITY</h2>
-        <p
-          class="val"
-          style="font-size: 18px; border-radius: 3px; text-align: center"
-        >
-          {{ values.turbidity | number: "2.1-2" }}<span class="unit"> NTU</span>
-        </p>
-        <p class="con" style="text-align: left">
-          CONNECTION STATUS:
-          <span style="color: greenyellow">✓ ONLINE</span>
-        </p>
-      </div>
-    </div>
-    <div class="row ms-md-5 mt-3 mt-md-0 pe-3">
-      <div
-        class="col-md me-2 mt-md-2 btn p-3"
         style="background-color: #71dfe7"
+        (click)="uipage(3)"
       >
+        <!-- dissolved oxygen -->
         <h2>DISSOLVED OXYGEN</h2>
         <p
           class="val"
           style="font-size: 18px; border-radius: 3px; text-align: center"
         >
           25<span class="unit"> mg/L</span>
+        </p>
+      </div>
+    </div>
+    <div class="row ms-md-5 mt-3 mt-md-0 pe-3">
+      <div
+        class="col-md me-2 mt-3 mt-md-2 btn p-3"
+        style="background-color: #ab6d23"
+        (click)="uipage(4)"
+      >
+        <!-- Hpa -->
+        <h2>HPa</h2>
+        <p
+          class="val"
+          style="font-size: 18px; border-radius: 3px; text-align: center"
+        >
+          25<span class="unit"> mbar</span>
         </p>
       </div>
       <div
@@ -82,11 +103,29 @@
         <p>THE CRADLE FOR TECHNOLOGY</p>
       </div>
       <div
-        class="col-md me-2 mt-3 mt-md-2 btn p-3"
-        style="background-color: #998ceb"
+        class="col-md me-2 mt-md-2 btn p-3"
+        style="background-color: #dd4a48"
+        (click)="uipage(5)"
       >
-        <h2>UV LAMPS</h2>
+        <!-- temperature -->
+        <h2>TEMPERATURE</h2>
+        <p style="text-align: left">
+          <span class="me-3">TANK TEMPERATURE </span>
+          <span
+            class="val"
+            style="font-size: 18px; border-radius: 3px; text-align: center"
+            >25</span
+          >
+        </p>
 
+        <p style="text-align: left">
+          <span class="me-3">CABIN TEMPERATURE</span>
+          <span
+            class="val"
+            style="font-size: 18px; border-radius: 3px; text-align: center"
+            >25</span
+          >
+        </p>
         <p class="con" style="text-align: left">
           CONNECTION STATUS:
           <span style="color: greenyellow">✓ ONLINE</span>
@@ -94,38 +133,50 @@
       </div>
     </div>
     <div class="row ms-md-5 pe-3">
-      <div class="col-md me-2 mt-2 btn p-3" style="background-color: #34be82">
-        <h2>AGITATION</h2>
+      <div
+        class="col-md me-2 mt-3 mt-md-2 btn p-3"
+        style="background-color: #9ae66e"
+        (click)="uipage(6)"
+      >
+        <!-- ph -->
+        <h2>pH</h2>
         <p
           class="val"
           style="font-size: 18px; border-radius: 3px; text-align: center"
         >
-          25<span class="unit"> RPM</span>
+          {{ values.ph.value | number: "2.1-2" }}
+        </p>
+        <p class="con" style="text-align: left">
+          CONNECTION STATUS: <span style="color: #ff0000">✘ OFFLINE</span>
+        </p>
+      </div>
+
+      <div
+        class="col-md me-2 mt-3 mt-md-2 btn p-3"
+        style="background-color: #ff7800"
+        (click)="uipage(7)"
+      >
+        <!-- turbidity -->
+        <h2>TURBIDITY</h2>
+        <p
+          class="val"
+          style="font-size: 18px; border-radius: 3px; text-align: center"
+        >
+          {{ values.turbidity.value | number: "2.1-2"
+          }}<span class="unit"> NTU</span>
+        </p>
+        <p class="con" style="text-align: left">
+          CONNECTION STATUS:
+          <span style="color: greenyellow">✓ ONLINE</span>
         </p>
       </div>
       <div
         class="col-md me-2 mt-3 mt-md-2 btn p-3"
-        style="background-color: #ab6d23"
+        style="background-color: #998ceb"
+        (click)="uipage(8)"
       >
-        <h2>HPa</h2>
-        <p
-          class="val"
-          style="font-size: 18px; border-radius: 3px; text-align: center"
-        >
-          25<span class="unit"> mbar</span>
-        </p>
-      </div>
-      <div
-        class="col-md me-2 mt-3 mt-md-2 btn p-3"
-        style="background-color: #d8b6a4"
-      >
-        <h2>COOLING FAN</h2>
-        <p
-          class="val"
-          style="font-size: 18px; border-radius: 3px; text-align: center"
-        >
-          25<span class="unit"> °C</span>
-        </p>
+        <h2>UV LAMPS</h2>
+        <!-- uvlamps -->
         <p class="con" style="text-align: left">
           CONNECTION STATUS:
           <span style="color: greenyellow">✓ ONLINE</span>
