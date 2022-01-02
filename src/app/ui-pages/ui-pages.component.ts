@@ -178,4 +178,7 @@ export class UiPagesComponent implements OnInit {
   logout() {
     this.auth.LogoutUser();
   }
+  back(){
+    this.router.navigate(['dashboard']);
+  }
 }

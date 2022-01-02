@@ -142,7 +142,6 @@ a {
   background-color: #71dfe7;
 }
 
-
 #navbarSupportedContent51,
 #navbarSupportedContent52,
 #navbarSupportedContent53,
@@ -230,7 +229,7 @@ a {
 }
 
 .dhead7 {
-  background-color:#bef0a1;
+  background-color: #bef0a1;
 }
 .dhead17:hover {
   font-weight: 600;
@@ -275,7 +274,6 @@ a {
   background-color: #fdb271;
 }
 
-
 #navbarSupportedContent91,
 #navbarSupportedContent92,
 #navbarSupportedContent93,
@@ -308,9 +306,9 @@ a {
   border: none;
   background-color: #bbb2f8;
 }
-
-
-
+p span {
+  font-size: 21px;
+}
 /* font-weight: bold;
       transition: all ease-in-out 0.1s; */
 body {
@@ -428,10 +426,18 @@ body {
     width: 5.5rem; */
     /* height: 3.5rem;
     width: 5.5rem; */
+    display: inline !important;
     margin-left: 90%;
+    margin-top: -5%;
+    background-color: rgb(18, 74, 107);
+    border: none;
+  }
+  .back {
+    margin-left: 10%;
     margin-top: 3%;
     background-color: rgb(18, 74, 107);
     border: none;
+    display: inline !important;
   }
   /*current slide 2*/
   .s2-2 {
@@ -989,5 +995,17 @@ body {
     width: 5.5rem;
     font-size: 3.25rem;
     cursor: pointer;
+  }
+  .logout {
+    margin-left: 80%;
+    margin-top: -13%;
+    background-color: rgb(18, 74, 107);
+    border: none;
+  }
+  .back {
+    margin-left: 3%;
+    margin-top: 3%;
+    background-color: rgb(18, 74, 107);
+    border: none;
   }
 }

@@ -30,7 +30,7 @@ export class MqttService {
       disOxygen: { value: 0, status: false },
       aqi: { value: 0, status: false },
       temp: { tankTemp: 0, cabinTemp: 0, status: false },
-      uv: { value:0, status: false },
+      uv: { value: 0, status: false },
       hpa: 0,
       coolingFan: { value: 0, status: false },
     };
@@ -58,20 +58,20 @@ export class MqttService {
     this.values.agitation = Number(message.payloadString);
     this.values.disOxygen.value = Number(message.payloadString);
     this.values.aqi.value = Number(message.payloadString);
-    this.values.aqi.status = message.payloadString;
+    //this.values.aqi.status = message.payloadString;
 
     this.values.hpa = Number(message.payloadString);
     this.values.temp.tankTemp = Number(message.payloadString);
     this.values.temp.cabinTemp = Number(message.payloadString);
-    this.values.temp.status = message.payloadString;
+    //this.values.temp.status = message.payloadString;
     this.values.ph.value = Number(message.payloadString);
-    this.values.ph.status = message.payloadString;
-    this.values.coolingFan.status = message.payloadString;
+    //this.values.ph.status = message.payloadString;
+    //this.values.coolingFan.status = message.payloadString;
     this.values.coolingFan.value = Number(message.payloadString);
 
     this.values.turbidity.value = Number(message.payloadString);
-    this.values.turbidity.status = message.payloadString;
-    this.values.uv.status = message.payloadString;
+    //this.values.turbidity.status = message.payloadString;
+    //this.values.uv.status = message.payloadString;
     this.valueCheck();
     this.user_id = this.auth.getUserId();
     //console.log(this.user_id);
@@ -84,9 +84,11 @@ export class MqttService {
     if (this.values.coolingFan.value > 38) {
       this.values.coolingFan.status = true;
     } else this.values.coolingFan.status = false;
+
     if (this.values.disOxygen.value > 50) {
       this.values.disOxygen.status = true;
     } else this.values.disOxygen.status = false;
+
     if (this.values.ph.value <= 4) this.values.ph.status = true;
     else this.values.ph.status = false;
   }

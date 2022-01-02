@@ -4,6 +4,7 @@
   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
   crossorigin="anonymous"
 />
+
 <button class="btn btn-primary logout" (click)="logout()">Logout</button>
 <div class="box">
   <div class="container pt-2">
@@ -23,7 +24,7 @@
         </p>
       </div>
       <div
-        class="col-md me-2 btn p-3"
+        class="col-md me-2 mt-3 mt-md-0 btn p-3"
         style="background-color: #e6e46e"
         (click)="uipage(1)"
       >
@@ -61,7 +62,7 @@
         </p>
         <p class="con" style="text-align: left">
           CONNECTION STATUS:
-          <span *ngIf="values.uv.status; else elseBlock"
+          <span *ngIf="values.coolingFan.status; else elseBlock"
             ><span style="color: greenyellow">✓ ONLINE</span></span
           >
           <ng-template #elseBlock
@@ -87,7 +88,7 @@
     </div>
     <div class="row ms-md-5 mt-3 mt-md-0 pe-3">
       <div
-        class="col-md me-2 mt-3 mt-md-2 btn p-3"
+        class="col-md me-2 mt-md-2 btn p-3"
         style="background-color: #ab6d23"
         (click)="uipage(4)"
       >
@@ -116,7 +117,7 @@
         <p>THE CRADLE FOR TECHNOLOGY</p>
       </div>
       <div
-        class="col-md me-2 mt-md-2 btn p-3"
+        class="col-md me-2 mt-3 mt-md-2 btn p-3"
         style="background-color: #dd4a48"
         (click)="uipage(5)"
       >
@@ -200,7 +201,7 @@
         </p>
       </div>
       <div
-        class="col-md me-2 mt-3 mt-md-2 btn p-3"
+        class="col-md me-2 mt-3 mt-md-2 btn p-3 mb-3 mb-md-0"
         style="background-color: #998ceb"
         (click)="uipage(8)"
       >
