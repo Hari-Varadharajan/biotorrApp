@@ -1,194 +1,340 @@
-
 <body class="body">
-
-  <div class="container" style="margin-top: 60px;">
-    <div class="card mx-auto " style="width: 40rem;border-radius: 40px;padding: 20px;background: rgba(255, 255, 255, 0.5);" >
-      <div class=" mx-auto" style="margin-top: 10px; "><h2 style="color: rgb(18, 74, 107);text-align: center;">REGISTERATION</h2></div>
-      <div class="card-body" >
-        <form style="filter:alpha(opacity=50); opacity:0.9;">
-        <div class="mb-3">
-          <label for="formGroupExampleInput" class="form-label">User name</label>
-          <div class="input-group has-validation">
-            <span  class="input-group-text igt" id="inputGroupPrepend">A</span>
-            <input
-              required
-              ngModel
-              #username="ngModel"
-              type="text"
-              class="form-control"
-              name="username"
-              [(ngModel)]="registeredUserData.username"
-              id="formGroupExampleInput"
-              placeholder=""
-              minlength="2"
-              maxlength="25"
-              pattern="^[a-zA-z0-9-]+$"
-            />
-            <div *ngIf="username.touched && !username.valid" style="margin-left: 20px;">
-              <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                <path  d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-              </svg>
+  <div class="container" style="margin-top: 2%; margin-bottom: 2%">
+    <div
+      class="card mx-auto card1 mb-3"
+      style="
+        width: 50%;
+        border-radius: 40px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.5);
+      "
+    >
+      <div class="mx-auto" style="margin-top: 10px">
+        <h2 style="color: rgb(18, 74, 107); text-align: center">
+          REGISTRATION
+        </h2>
+      </div>
+      <div class="card-body">
+        <form style="filter: alpha(opacity=50); opacity: 0.9">
+          <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label"
+              >Username</label
+            >
+            <div class="input-group has-validation">
+              <span class="input-group-text igt" id="inputGroupPrepend">A</span>
+              <input
+                required
+                ngModel
+                #username="ngModel"
+                type="text"
+                class="form-control"
+                name="username"
+                [(ngModel)]="registeredUserData.username"
+                id="formGroupExampleInput"
+                placeholder=""
+                minlength="2"
+                maxlength="25"
+                pattern="^[a-zA-z0-9-]+$"
+              />
+              <div
+                *ngIf="username.touched && !username.valid"
+                style="margin-left: 20px"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="red"
+                  class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                  viewBox="0 0 16 16"
+                  role="img"
+                  aria-label="Warning:"
+                >
+                  <path
+                    d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div *ngIf="!username.valid && username.touched">
+              <div class="myalert" *ngIf="username.errors?.required">
+                * Username must not be empty
+              </div>
+              <div class="myalert" *ngIf="username.errors?.pattern">
+                * should not contain any special character/space
+              </div>
+              <div class="myalert" *ngIf="username.errors?.maxlength">
+                * should contain maximum of
+                {{ username.errors?.maxlength.requiredLength }} characters
+              </div>
+              <div class="myalert" *ngIf="username.errors?.minlength">
+                * should contain minimum of
+                {{ username.errors?.minlength.requiredLength }} characters
+              </div>
             </div>
           </div>
-          <div 
-            *ngIf="!username.valid && username.touched">
-            <div class="myalert" *ngIf="username.errors?.required">* Username must not be empty</div>
-            <div class="myalert" *ngIf="username.errors?.pattern">* should not contain any special character/space</div>
-            <div class="myalert" *ngIf="username.errors?.maxlength">* should contain maximum of {{username.errors?.maxlength.requiredLength}} characters</div>
-            <div class="myalert" *ngIf="username.errors?.minlength">* should contain minimum of {{username.errors?.minlength.requiredLength}} characters</div>
-          </div>
-        </div>
 
-        <div class="mb-3">
-          <label for="formGroupExampleInput2" class="form-label">Password</label>
-          <div class="input-group has-validation">
-            <span  class="input-group-text igt" id="inputGroupPrepend">#</span>
-            <input
-              type="password"
-              name="password"
-              [(ngModel)]="registeredUserData.password"
-              class="form-control"
-              id="formGroupExampleInput2"
-              placeholder=""
-              required
-              ngModel
-              #password="ngModel"
-              minlength="8"
-              maxlength="25"
-              pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,25}$"
-            />
-            <div *ngIf="password.touched && !password.valid" style="margin-left: 20px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                <path  d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-              </svg>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label"
+              >Password</label
+            >
+            <div class="input-group has-validation">
+              <span class="input-group-text igt" id="inputGroupPrepend">#</span>
+              <input
+                type="password"
+                name="password"
+                [(ngModel)]="registeredUserData.password"
+                class="form-control"
+                id="formGroupExampleInput2"
+                placeholder=""
+                required
+                ngModel
+                #password="ngModel"
+                minlength="8"
+                maxlength="25"
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,25}$"
+              />
+              <div
+                *ngIf="password.touched && !password.valid"
+                style="margin-left: 20px"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="red"
+                  class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                  viewBox="0 0 16 16"
+                  role="img"
+                  aria-label="Warning:"
+                >
+                  <path
+                    d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div *ngIf="password.touched && !password.valid">
+              <div class="myalert" *ngIf="password.errors?.minlength">
+                * should contain minimum of
+                {{ password.errors?.minlength.requiredLength }} characters
+              </div>
+              <div class="myalert" *ngIf="password.errors?.pattern">
+                * should contain alpha-neumaeric with upper and lower case
+              </div>
+              <div class="myalert" *ngIf="password.errors?.required">
+                * Password must not be empty
+              </div>
             </div>
           </div>
-          <div 
-            *ngIf="password.touched && !password.valid">
-            <div class="myalert" *ngIf="password.errors?.minlength">* should contain minimum of {{password.errors?.minlength.requiredLength}} characters</div>
-            <div class="myalert" *ngIf="password.errors?.pattern">* should contain alpha-neumaeric with upper and lower case</div>
-            <div class="myalert" *ngIf="password.errors?.required">* Password must not be empty</div>
-          </div>
-        </div>
 
-        <div class="mb-3">
-          <label for="formGroupExampleInput3" class="form-label">Confirm Password</label>
-          <div class="input-group has-validation">
-            <span class="input-group-text igt" id="inputGroupPrepend">#</span>
-            <input
-              type="password"
-              name="Cpassword"
-              [(ngModel)]="registeredUserData.Cpassword"
-              class="form-control"
-              id="formGroupExampleInput3" 
-              placeholder=""
-              ngModel
-              required
-              minlength="8"
-              #Cpassword="ngModel"
-              pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$"
-              ngValidateEqual="password" 
-            />
-            <div *ngIf="(Cpassword.dirty || Cpassword.touched) && Cpassword.invalid" style="margin-left: 20px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                <path  d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-              </svg>
+          <div class="mb-3">
+            <label for="formGroupExampleInput3" class="form-label"
+              >Confirm Password</label
+            >
+            <div class="input-group has-validation">
+              <span class="input-group-text igt" id="inputGroupPrepend">#</span>
+              <input
+                type="password"
+                name="Cpassword"
+                [(ngModel)]="registeredUserData.Cpassword"
+                class="form-control"
+                id="formGroupExampleInput3"
+                placeholder=""
+                ngModel
+                required
+                minlength="8"
+                #Cpassword="ngModel"
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$"
+                ngValidateEqual="password"
+              />
+              <div
+                *ngIf="
+                  (Cpassword.dirty || Cpassword.touched) && Cpassword.invalid
+                "
+                style="margin-left: 20px"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="red"
+                  class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                  viewBox="0 0 16 16"
+                  role="img"
+                  aria-label="Warning:"
+                >
+                  <path
+                    d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              *ngIf="
+                (Cpassword.dirty || Cpassword.touched) && Cpassword.invalid
+              "
+            >
+              <p
+                class="myalert"
+                *ngIf="Cpassword.hasError('notEqual') && password.valid"
+              >
+                Passwords Don't Match
+              </p>
             </div>
           </div>
-          <div *ngIf="(Cpassword.dirty || Cpassword.touched) && Cpassword.invalid">
-            <p class="myalert" *ngIf="Cpassword.hasError('notEqual') && password.valid">
-              Passwords Don't Match
-            </p>
-        </div>
-        </div>
 
-        <div class="mb-3">
-          <label for="formGroupExampleInput4" class="form-label">E-mail</label>
-          <div class="input-group has-validation">
-            <span style="background-color: white;" class="input-group-text igt" id="inputGroupPrepend">@</span>
-            <input
-              type="text"
-              name="email"
-              [(ngModel)]="registeredUserData.email"
-              class="form-control"
-              id="formGroupExampleInput4"
-              placeholder=""
-              ngModel
-              required
-              #email="ngModel"
-              pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            />
-            <div *ngIf="email.touched && !email.valid" style="margin-left: 20px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                <path  d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-              </svg>
+          <div class="mb-3">
+            <label for="formGroupExampleInput4" class="form-label"
+              >E-mail</label
+            >
+            <div class="input-group has-validation">
+              <span
+                style="background-color: white"
+                class="input-group-text igt"
+                id="inputGroupPrepend"
+                >@</span
+              >
+              <input
+                type="text"
+                name="email"
+                [(ngModel)]="registeredUserData.email"
+                class="form-control"
+                id="formGroupExampleInput4"
+                placeholder=""
+                ngModel
+                required
+                #email="ngModel"
+                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              />
+              <div
+                *ngIf="email.touched && !email.valid"
+                style="margin-left: 20px"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="red"
+                  class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                  viewBox="0 0 16 16"
+                  role="img"
+                  aria-label="Warning:"
+                >
+                  <path
+                    d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div *ngIf="email.touched && !email.valid">
+              <div class="myalert" *ngIf="email.errors?.pattern">
+                * enter a valid email
+              </div>
+              <div class="myalert" *ngIf="email.errors?.required">
+                * E-mail should not be empty
+              </div>
             </div>
           </div>
-          <div
-            *ngIf="email.touched && !email.valid">
-              <div class="myalert" *ngIf="email.errors?.pattern" >* enter a valid email</div>
-              <div class="myalert" *ngIf="email.errors?.required">* E-mail should not be empty </div>
-          </div>
-        </div>
 
-        <div class="mb-3">
-          <label for="formGroupExampleInput5" class="form-label">Organization</label>
-          <div class="input-group has-validation">
-            <input
-              type="text"
-              name="organization"
-              [(ngModel)]="registeredUserData.organization"
-              class="form-control"
-              id="formGroupExampleInput5"
-              placeholder=""
-              ngModel
-              required
-              #organization="ngModel"
-            />
-            <div *ngIf="organization.touched && !organization.valid" style="margin-left: 20px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                <path  d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-              </svg>
+          <div class="mb-3">
+            <label for="formGroupExampleInput5" class="form-label"
+              >Organization</label
+            >
+            <div class="input-group has-validation">
+              <input
+                type="text"
+                name="organization"
+                [(ngModel)]="registeredUserData.organization"
+                class="form-control"
+                id="formGroupExampleInput5"
+                placeholder=""
+                ngModel
+                required
+                #organization="ngModel"
+              />
+              <div
+                *ngIf="organization.touched && !organization.valid"
+                style="margin-left: 20px"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="red"
+                  class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                  viewBox="0 0 16 16"
+                  role="img"
+                  aria-label="Warning:"
+                >
+                  <path
+                    d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="myalert"
+              *ngIf="organization.touched && !organization.valid"
+            >
+              * Organization should not be empty
             </div>
           </div>
-          <div class="myalert" *ngIf="organization.touched && !organization.valid"> * Organization should not be empty</div>
-        </div>
 
-        <div class="mb-4">
-          <label for="formGroupExampleInput6" class="form-label">Designation</label>
-          <div class="input-group has-validation">
-            <input
-              type="text"
-              name="designation"
-              [(ngModel)]="registeredUserData.designation"
-              class="form-control"
-              id="formGroupExampleInput6"
-              placeholder=""
-              ngModel
-              required
-              #designation="ngModel"
-            />
-            <div *ngIf="designation.touched && !designation.valid" style="margin-left: 20px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                <path  d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-              </svg>
+          <div class="mb-4">
+            <label for="formGroupExampleInput6" class="form-label"
+              >Designation</label
+            >
+            <div class="input-group has-validation">
+              <input
+                type="text"
+                name="designation"
+                [(ngModel)]="registeredUserData.designation"
+                class="form-control"
+                id="formGroupExampleInput6"
+                placeholder=""
+                ngModel
+                required
+                #designation="ngModel"
+              />
+              <div
+                *ngIf="designation.touched && !designation.valid"
+                style="margin-left: 20px"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="red"
+                  class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                  viewBox="0 0 16 16"
+                  role="img"
+                  aria-label="Warning:"
+                >
+                  <path
+                    d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div *ngIf="designation.touched && !designation.valid">
+              <div class="myalert" *ngIf="designation.errors?.required">
+                * Designation should not be empty
+              </div>
             </div>
           </div>
-          <div  
-            *ngIf="designation.touched && !designation.valid">
-            <div class="myalert" *ngIf="designation.errors?.required">* Designation should not be empty </div>
-          </div>
-        </div>
 
-        <div class="mb-3">
-          <button type="button" (click)="registerUser()" class="btn btn-primary">
-            Register
-          </button>
-        </div>
-      </form > 
+          <div class="mb-3">
+            <button
+              type="button"
+              (click)="registerUser()"
+              class="btn btn-primary"
+            >
+              Register
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-
-
 </body>
