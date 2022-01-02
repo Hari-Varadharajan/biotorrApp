@@ -11,7 +11,7 @@ import { ObjectId } from 'mongoose';
 export class MqttService {
   mqttbroker = 'broker.hivemq.com';
   private user_id!: ObjectId;
-  values: Values;
+  values!: Values;
   private _saveUrl = 'http://localhost:3000/values/save';
   private client: any;
   constructor(private http: HttpClient, private auth: AuthService) {
@@ -26,6 +26,13 @@ export class MqttService {
     this.values = {
       ph: { value: 7, status: false },
       turbidity: { value: 8, status: false },
+      agitation: 0,
+      disOxygen: 0,
+      aqi: { value: 0, status: false },
+      temp: { tankTemp: 0, cabinTemp: 0, status: false },
+      uv: { status: false },
+      hpa: 0,
+      coolingFan: { value: 0, status: false },
     };
   }
   onConnect() {
@@ -48,10 +55,23 @@ export class MqttService {
     // if (message.destinationName.indexOf('wind_speed') !== -1) {
     //   this.windSpeed = Number(message.payloadString);
     // }
+    this.values.agitation = Number(message.payloadString);
+    this.values.disOxygen = Number(message.payloadString);
+    this.values.aqi.value = Number(message.payloadString);
+    this.values.aqi.status = message.payloadString;
 
+    this.values.hpa = Number(message.payloadString);
+    this.values.temp.tankTemp = Number(message.payloadString);
+    this.values.temp.cabinTemp = Number(message.payloadString);
+    this.values.temp.status = message.payloadString;
     this.values.ph.value = Number(message.payloadString);
-    this.values.turbidity.value = Number(message.payloadString);
+    this.values.ph.status = message.payloadString;
+    this.values.coolingFan.status = message.payloadString;
+    this.values.coolingFan.value = Number(message.payloadString);
 
+    this.values.turbidity.value = Number(message.payloadString);
+    this.values.turbidity.status = message.payloadString;
+    this.values.uv.status = message.payloadString;
     this.user_id = this.auth.getUserId();
     //console.log(this.user_id);
     this.saveValues(this.values, this.user_id).subscribe(

@@ -19,7 +19,7 @@
           class="val"
           style="font-size: 18px; border-radius: 3px; text-align: center"
         >
-          25<span class="unit"> RPM</span>
+          {{ values.agitation | number: "2.1-2" }}<span class="unit"> RPM</span>
         </p>
       </div>
       <div
@@ -33,10 +33,16 @@
           class="val"
           style="font-size: 18px; border-radius: 3px; text-align: center"
         >
-          {{ values.ph.value | number: "2.1-2" }}
+          {{ values.aqi.value | number: "2.1-2" }}
         </p>
         <p class="con" style="text-align: left">
-          CONNECTION STATUS: <span style="color: #ff0000">✘ OFFLINE</span>
+          CONNECTION STATUS:
+          <span *ngIf="values.uv.status; else elseBlock"
+            ><span style="color: greenyellow">✓ ONLINE</span></span
+          >
+          <ng-template #elseBlock
+            ><span style="color: #ff0000">✘ OFFLINE</span></ng-template
+          >
         </p>
       </div>
       <div
@@ -50,11 +56,17 @@
           class="val"
           style="font-size: 18px; border-radius: 3px; text-align: center"
         >
-          25<span class="unit"> °C</span>
+          {{ values.coolingFan.value | number: "2.1-2"
+          }}<span class="unit"> °C</span>
         </p>
         <p class="con" style="text-align: left">
           CONNECTION STATUS:
-          <span style="color: greenyellow">✓ ONLINE</span>
+          <span *ngIf="values.uv.status; else elseBlock"
+            ><span style="color: greenyellow">✓ ONLINE</span></span
+          >
+          <ng-template #elseBlock
+            ><span style="color: #ff0000">✘ OFFLINE</span></ng-template
+          >
         </p>
       </div>
       <div
@@ -68,7 +80,8 @@
           class="val"
           style="font-size: 18px; border-radius: 3px; text-align: center"
         >
-          25<span class="unit"> mg/L</span>
+          {{ values.disOxygen | number: "2.1-2"
+          }}<span class="unit"> mg/L</span>
         </p>
       </div>
     </div>
@@ -84,7 +97,7 @@
           class="val"
           style="font-size: 18px; border-radius: 3px; text-align: center"
         >
-          25<span class="unit"> mbar</span>
+          {{ values.hpa | number: "2.1-2" }}<span class="unit"> mbar</span>
         </p>
       </div>
       <div
@@ -114,7 +127,7 @@
           <span
             class="val"
             style="font-size: 18px; border-radius: 3px; text-align: center"
-            >25</span
+            >{{ values.temp.tankTemp | number: "2.1-2" }}</span
           >
         </p>
 
@@ -123,12 +136,17 @@
           <span
             class="val"
             style="font-size: 18px; border-radius: 3px; text-align: center"
-            >25</span
+            >{{ values.temp.cabinTemp | number: "2.1-2" }}</span
           >
         </p>
         <p class="con" style="text-align: left">
           CONNECTION STATUS:
-          <span style="color: greenyellow">✓ ONLINE</span>
+          <span *ngIf="values.uv.status; else elseBlock"
+            ><span style="color: greenyellow">✓ ONLINE</span></span
+          >
+          <ng-template #elseBlock
+            ><span style="color: #ff0000">✘ OFFLINE</span></ng-template
+          >
         </p>
       </div>
     </div>
@@ -144,10 +162,16 @@
           class="val"
           style="font-size: 18px; border-radius: 3px; text-align: center"
         >
-          {{ values.ph.value | number: "2.1-2" }}
+          {{ values.ph.value }}
         </p>
         <p class="con" style="text-align: left">
-          CONNECTION STATUS: <span style="color: #ff0000">✘ OFFLINE</span>
+          CONNECTION STATUS:
+          <span *ngIf="values.uv.status; else elseBlock"
+            ><span style="color: greenyellow">✓ ONLINE</span></span
+          >
+          <ng-template #elseBlock
+            ><span style="color: #ff0000">✘ OFFLINE</span></ng-template
+          >
         </p>
       </div>
 
@@ -167,7 +191,12 @@
         </p>
         <p class="con" style="text-align: left">
           CONNECTION STATUS:
-          <span style="color: greenyellow">✓ ONLINE</span>
+          <span *ngIf="values.uv.status; else elseBlock"
+            ><span style="color: greenyellow">✓ ONLINE</span></span
+          >
+          <ng-template #elseBlock
+            ><span style="color: #ff0000">✘ OFFLINE</span></ng-template
+          >
         </p>
       </div>
       <div
@@ -179,7 +208,13 @@
         <!-- uvlamps -->
         <p class="con" style="text-align: left">
           CONNECTION STATUS:
-          <span style="color: greenyellow">✓ ONLINE</span>
+
+          <span *ngIf="values.uv.status; else elseBlock"
+            ><span style="color: greenyellow">✓ ONLINE</span></span
+          >
+          <ng-template #elseBlock
+            ><span style="color: #ff0000">✘ OFFLINE</span></ng-template
+          >
         </p>
       </div>
     </div>

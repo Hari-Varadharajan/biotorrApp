@@ -1,14 +1,22 @@
-.body
-{
-   /* background-image: url(src\assets\imgs\download.jfif); */
-   background-color: thistle;
-    display: flex;
-    height: 800px;
-    
+.body {
+  background-image: url(src\assets\imgs\background.png);
+  display: flex;
+  height: 750px;
 }
-.myalert{
-    color: crimson;
+.myalert {
+  color: crimson;
 }
-.igt{
-    background-color: white;
+.igt {
+  background-color: white;
+}
+p span {
+  font-size: large;
+}
+@media only screen and (max-width: 768px) {
+  .card1 {
+    width: 90% !important;
+  }
+}
+.newuser:hover {
+  color: white !important;
 }
