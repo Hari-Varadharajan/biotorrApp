@@ -1,6 +1,7 @@
 .body
 {
-    background-image: url(src\assets\imgs\download.jfif);
+    /* background-image: url(src\assets\imgs\download.jfif); */
+    background-color: thistle;
     height: auto;
     display: flex;
 }

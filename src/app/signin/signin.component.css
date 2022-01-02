@@ -1,8 +1,9 @@
 .body
 {
-    background-image: url(src\assets\imgs\download.jfif);
+   /* background-image: url(src\assets\imgs\download.jfif); */
+   background-color: thistle;
     display: flex;
-    height: 750px;
+    height: 800px;
     
 }
 .myalert{
