@@ -1,19 +1,26 @@
 import { state } from '@angular/animations';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { MqttService } from '../mqtt.service';
+import { Values } from '../Values';
 @Component({
   selector: 'app-ui-pages',
   templateUrl: './ui-pages.component.html',
   styleUrls: ['./ui-pages.component.css'],
 })
 export class UiPagesComponent implements OnInit {
-  constructor(private elRef: ElementRef, private router: Router) {
+  constructor(
+    private elRef: ElementRef,
+    private router: Router,
+    private mqtt: MqttService
+  ) {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation?.extras.state as {
       slide: number;
     };
     this.curSlide = state.slide;
   }
+  values!: Values;
   slides: any;
   btnRight = <HTMLElement>document.querySelector('.right');
   btnLeft = <HTMLElement>document.querySelector('.left');
@@ -21,12 +28,14 @@ export class UiPagesComponent implements OnInit {
   MaxSlide: any;
   ngAfterViewInit() {}
   ngOnInit(): void {
+    this.values = this.mqtt.values;
     let slides = Array.from(
       this.elRef.nativeElement.querySelectorAll('.slide')
     );
     this.slides = slides;
     this.MaxSlide = this.slides.length;
     this.moveSlide(this.curSlide);
+    
     // this.btnRight.addEventListener('click', this.slideRight);
     // this.btnLeft.addEventListener('click', this.slideLeft);
   }

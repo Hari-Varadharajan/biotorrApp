@@ -250,7 +250,15 @@ body {
     font-size: 3.25rem;
     cursor: pointer;
   }
+  .logout {
+    /* position: absolute;
+    left: 100%;
+    bottom: 100%;
 
+    width: 5.5rem; */
+    /* height: 3.5rem;
+    width: 5.5rem; */
+  }
   /*current slide 2*/
   .s2-2 {
     position: absolute;

@@ -5,107 +5,19 @@
         <button class="left" (click)="slideLeft()"><</button>
         <div class="col-md slide s1-1">
           <ul class="list-group" style="text-align: center">
-            <li id="head1" class="list-group-item head1">Settings</li>
+            <li id="head1" class="list-group-item head1">AGITATION</li>
 
             <li id="dhead1" class="list-group-item dhead1">
-              <a
-                id="dhead11"
-                href="#"
-                class="list-group-item dhead11"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent1"
-                data-bs-toggle="collapse"
-              >
-                WiFi Settings ⌵ <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent1"
-              >
-                <a id="box1" class="list-group-item box1" href="#">Action</a>
-                <a id="box1" class="list-group-item box1" href="#"
-                  >Another action</a
-                >
-                <a id="box1" class="list-group-item box1" href="#"
-                  >Something else here</a
-                >
-              </div>
+              <span class="dhead11 box"
+                >Current Reading: {{ values.agitation }}</span
+              ><span class="unit"> RPM</span>
             </li>
 
-            <li id="dhead1" class="list-group-item dhead1">
-              <a
-                id="dhead11"
-                href="#"
-                class="list-group-item dhead11"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent2"
-                data-bs-toggle="collapse"
-              >
-                Login Settings ⌵ <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent2"
-              >
-                <a id="box1" class="list-group-item box1" href="#">Action</a>
-                <a id="box1" class="list-group-item box1" href="#"
-                  >Another action</a
-                >
-                <a id="box1" class="list-group-item box1" href="#"
-                  >Something else here</a
-                >
-              </div>
-            </li>
+            <li id="dhead1" class="list-group-item dhead1"><p></p></li>
 
-            <li id="dhead1" class="list-group-item dhead1">
-              <a
-                id="dhead11"
-                href="#"
-                class="list-group-item dhead11"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent3"
-                data-bs-toggle="collapse"
-              >
-                Profile Management ⌵ <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent3"
-              >
-                <a id="box1" class="list-group-item box1" href="#">Action</a>
-                <a id="box1" class="list-group-item box1" href="#"
-                  >Another action</a
-                >
-                <a id="box1" class="list-group-item box1" href="#"
-                  >Something else here</a
-                >
-              </div>
-            </li>
+            <li id="dhead1" class="list-group-item dhead1"><p></p></li>
 
-            <li id="dhead1" class="list-group-item dhead1">
-              <a
-                id="dhead11"
-                href="#"
-                class="list-group-item dhead11"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent4"
-                data-bs-toggle="collapse"
-              >
-                PIN Code Settings <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent4"
-              >
-                <a id="box1" class="list-group-item box1" href="#">Action</a>
-                <a id="box1" class="list-group-item box1" href="#"
-                  >Another action</a
-                >
-                <a id="box1" class="list-group-item box1" href="#"
-                  >Something else here</a
-                >
-              </div>
-            </li>
+            <li id="dhead1" class="list-group-item dhead1"><p></p></li>
             <br />
           </ul>
         </div>
@@ -457,5 +369,6 @@
         <button class="right" (click)="slideRight()">></button>
       </div>
     </div>
+    <button class="btn btn-primary logout">Logout</button>
   </div>
 </body>
