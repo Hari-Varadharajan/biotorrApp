@@ -9,6 +9,9 @@
 .igt {
   background-color: white;
 }
+p span {
+  font-size: large;
+}
 @media only screen and (max-width: 768px) {
   .card1 {
     width: 90% !important;
