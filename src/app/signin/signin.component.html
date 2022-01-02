@@ -73,19 +73,8 @@
               </div>
             </div>
             <div *ngIf="!username.valid && username.touched">
-              <div class="myalert" *ngIf="username.errors?.pattern">
-                * should not contain any special character/space
-              </div>
               <div class="myalert" *ngIf="username.errors?.required">
                 * Username must not be empty
-              </div>
-              <div class="myalert" *ngIf="username.errors?.maxlength">
-                * should contain maximum of
-                {{ username.errors?.maxlength.requiredLength }} characters
-              </div>
-              <div class="myalert" *ngIf="username.errors?.minlength">
-                * should contain minimum of
-                {{ username.errors?.minlength.requiredLength }} characters
               </div>
             </div>
           </div>
@@ -129,16 +118,10 @@
               </div>
             </div>
             <div *ngIf="password.touched && !password.valid">
-              <div class="myalert" *ngIf="password.errors?.minlength">
-                * should contain minimum of
-                {{ password.errors?.minlength.requiredLength }} characters
-              </div>
-              <div class="myalert" *ngIf="password.errors?.pattern">
-                * should contain alpha-neumaeric with upper and lower case
-              </div>
               <div class="myalert" *ngIf="password.errors?.required">
                 * Password must not be empty
               </div>
+              <div *ngIf="errLink" class="myalert">* {{ errMsg }}</div>
             </div>
           </div>
           <div class="mb-3">
@@ -146,9 +129,10 @@
               Login
             </button>
             <pre style="display: inline-block"></pre>
-            <a href="/signup" style="margin-left: 55%">New User ?</a>
+            <a href="/signup" class="newuser" style="margin-left: 55%; color: black"
+              >New User ?</a
+            >
           </div>
-          <div *ngIf="errLink">{{ errMsg }}</div>
         </form>
       </div>
     </div>

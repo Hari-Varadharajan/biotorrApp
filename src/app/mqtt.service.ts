@@ -23,10 +23,17 @@ export class MqttService {
     this.client.onMessageArrived = this.onMessageArrived.bind(this);
     this.client.onConnectionLost = this.onConnectionLost.bind(this);
     this.client.connect({ onSuccess: this.onConnect.bind(this) });
-    // this.values = {
-    //   ph: { value: 7, status: false },
-    //   turbidity: { value: 8, status: false },
-    // };
+    this.values = {
+      ph: { value: 7, status: false },
+      turbidity: { value: 8, status: false },
+      agitation: 0,
+      disOxygen: 0,
+      aqi: { value: 0, status: false },
+      temp: { tankTemp: 0, cabinTemp: 0, status: false },
+      uv: { status: false },
+      hpa: 0,
+      coolingFan: { value: 0, status: false },
+    };
   }
   onConnect() {
     console.log('onConnect');
@@ -59,6 +66,8 @@ export class MqttService {
     this.values.temp.status = message.payloadString;
     this.values.ph.value = Number(message.payloadString);
     this.values.ph.status = message.payloadString;
+    this.values.coolingFan.status = message.payloadString;
+    this.values.coolingFan.value = Number(message.payloadString);
 
     this.values.turbidity.value = Number(message.payloadString);
     this.values.turbidity.status = message.payloadString;

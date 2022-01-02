@@ -17,3 +17,6 @@ p span {
     width: 90% !important;
   }
 }
+.newuser:hover {
+  color: white !important;
+}
