@@ -1,7 +1,7 @@
 .body {
   background-image: url(src\assets\imgs\background.png);
   display: flex;
-  height: 750px;
+  height: 100vh;
 }
 .myalert {
   color: crimson;
@@ -19,4 +19,8 @@ p span {
 }
 .newuser:hover {
   color: white !important;
+}
+button {
+  background-color: rgb(18, 74, 107);
+  border: none;
 }

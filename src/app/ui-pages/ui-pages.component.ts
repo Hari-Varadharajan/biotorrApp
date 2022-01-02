@@ -1,6 +1,7 @@
 import { state } from '@angular/animations';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 import { MqttService } from '../mqtt.service';
 import { Values } from '../Values';
 @Component({
@@ -12,7 +13,8 @@ export class UiPagesComponent implements OnInit {
   constructor(
     private elRef: ElementRef,
     private router: Router,
-    private mqtt: MqttService
+    private mqtt: MqttService,
+    private auth:AuthService
   ) {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation?.extras.state as {
@@ -171,5 +173,8 @@ export class UiPagesComponent implements OnInit {
       this.curSlide--;
       this.moveSlide(this.curSlide);
     }
+  }
+  logout(){
+    this.auth.LogoutUser();
   }
 }

@@ -17,3 +17,7 @@ p span {
     width: 90% !important;
   }
 }
+button {
+  background-color: rgb(18, 74, 107);
+  border: none;
+}

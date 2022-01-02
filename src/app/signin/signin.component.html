@@ -7,9 +7,9 @@
       <span>T</span>HE <span>N</span>EXT <span>G</span>EN
       <span>B</span>IO<span>R</span>EACTOR <span>S</span>YSTEM
     </p>
-    <br>
+    <br />
     <div
-      class="card mx-auto card1"
+      class="card mx-auto card1 mb-5"
       style="
         width: 40%;
         border-radius: 40px;
@@ -75,16 +75,18 @@
                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,25}$"
               />
             </div>
-            
-              <div *ngIf="errLink" class="myalert">* {{ errMsg }}</div>
-            
+
+            <div *ngIf="errLink" class="myalert">* {{ errMsg }}</div>
           </div>
           <div class="mb-3">
             <button type="button" (click)="LoginUser()" class="btn btn-primary">
               Login
             </button>
             <pre style="display: inline-block"></pre>
-            <a href="/signup" class="newuser" style="margin-left: 55%; color: black"
+            <a
+              href="/signup"
+              class="newuser"
+              style="margin-left: 55%; color: black"
               >New User ?</a
             >
           </div>
