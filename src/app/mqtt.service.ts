@@ -27,10 +27,10 @@ export class MqttService {
       ph: { value: 7, status: false },
       turbidity: { value: 8, status: false },
       agitation: 0,
-      disOxygen: 0,
+      disOxygen: { value: 0, status: false },
       aqi: { value: 0, status: false },
       temp: { tankTemp: 0, cabinTemp: 0, status: false },
-      uv: { status: false },
+      uv: { value:0, status: false },
       hpa: 0,
       coolingFan: { value: 0, status: false },
     };
@@ -56,7 +56,7 @@ export class MqttService {
     //   this.windSpeed = Number(message.payloadString);
     // }
     this.values.agitation = Number(message.payloadString);
-    this.values.disOxygen = Number(message.payloadString);
+    this.values.disOxygen.value = Number(message.payloadString);
     this.values.aqi.value = Number(message.payloadString);
     this.values.aqi.status = message.payloadString;
 
@@ -72,6 +72,7 @@ export class MqttService {
     this.values.turbidity.value = Number(message.payloadString);
     this.values.turbidity.status = message.payloadString;
     this.values.uv.status = message.payloadString;
+    this.valueCheck();
     this.user_id = this.auth.getUserId();
     //console.log(this.user_id);
     this.saveValues(this.values, this.user_id).subscribe(
@@ -79,12 +80,23 @@ export class MqttService {
       (err) => console.log(err)
     );
   }
+  valueCheck() {
+    if (this.values.coolingFan.value > 38) {
+      this.values.coolingFan.status = true;
+    } else this.values.coolingFan.status = false;
+    if (this.values.disOxygen.value > 50) {
+      this.values.disOxygen.status = true;
+    } else this.values.disOxygen.status = false;
+    if (this.values.ph.value <= 4) this.values.ph.status = true;
+    else this.values.ph.status = false;
+  }
   saveValues(values: Values, user_id: ObjectId) {
     return this.http.post(
       this._saveUrl,
       { values, user_id },
       { responseType: 'text' }
     );
+
     //console.log('hello');
   }
 }

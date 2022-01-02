@@ -1,8 +1,8 @@
 .box {
-  height: 70%;
+  height: 70% !important;
   width: 70%;
   margin: auto;
-  margin-top: 2%;
+  /* margin-top: 2%; */
   /* background-color: aqua !important; */
 }
 .box .col-md {
@@ -69,4 +69,10 @@ p span {
 .col-md:hover .con span {
   color: black !important;
   transition: all ease-in-out 0.5s;
+}
+.logout {
+  margin-left: 90%;
+  margin-top: 0.5%;
+  background-color: rgb(18, 74, 107);
+  border: none;
 }

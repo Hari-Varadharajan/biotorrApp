@@ -9,12 +9,12 @@
             <li id="head1" class="list-group-item head1">AGITATION</li>
 
             <li id="dhead1" class="list-group-item dhead1">
-              <span class="dhead11 box"
-                >Current Reading: {{ values.agitation }}</span
-              ><span class="unit"> RPM</span>
+              <span class="dhead11 box">Current Reading </span>
             </li>
 
-            <li id="dhead1" class="list-group-item dhead1"><p></p></li>
+            <li id="dhead1" class="list-group-item dhead1">
+              <span>{{ values.agitation }} <span class="unit"> RPM</span></span>
+            </li>
 
             <li id="dhead1" class="list-group-item dhead1"><p></p></li>
 
@@ -24,98 +24,30 @@
         </div>
         <div class="col-md slide s1-2">
           <ul class="list-group" style="text-align: center">
-            <li id="head2" class="list-group-item">More</li>
+            <li id="head2" class="list-group-item">AQI</li>
 
             <li id="dhead2" class="list-group-item">
-              <a
-                id="dhead12"
-                href="#"
-                class="list-group-item"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent21"
-                data-bs-toggle="collapse"
-              >
-                WPS <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent21"
-              >
-                <a id="box2" class="list-group-item" href="#">Action</a>
-                <a id="box2" class="list-group-item" href="#">Another action</a>
-                <a id="box2" class="list-group-item" href="#"
-                  >Something else here</a
-                >
-              </div>
+              <span class="dhead11 box">Current Reading </span>
             </li>
 
             <li id="dhead2" class="list-group-item">
-              <a
-                id="dhead12"
-                href="#"
-                class="list-group-item"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent22"
-                data-bs-toggle="collapse"
-              >
-                Online Update ⌵ <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent22"
-              >
-                <a id="box2" class="list-group-item" href="#">Action</a>
-                <a id="box2" class="list-group-item" href="#">Another action</a>
-                <a id="box2" class="list-group-item" href="#"
-                  >Something else here</a
-                >
-              </div>
+              <span>{{ values.aqi.value }}</span
+              ><span class="unit"> RPM</span>
             </li>
 
             <li id="dhead2" class="list-group-item">
-              <a
-                id="dhead12"
-                href="#"
-                class="list-group-item"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent23"
-                data-bs-toggle="collapse"
+              <span class="con" style="text-align: left"
+                >CONNECTION STATUS</span
               >
-                USSD ⌵ <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent23"
-              >
-                <a id="box2" class="list-group-item" href="#">Action</a>
-                <a id="box2" class="list-group-item" href="#">Another action</a>
-                <a id="box2" class="list-group-item" href="#"
-                  >Something else here</a
-                >
-              </div>
             </li>
 
             <li id="dhead2" class="list-group-item">
-              <a
-                id="dhead12"
-                href="#"
-                class="list-group-item"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent24"
-                data-bs-toggle="collapse"
+              <span *ngIf="values.aqi.status; else elseBlock"
+                ><span style="color: greenyellow">✓ ONLINE</span></span
               >
-                Diagnostic ⌵ <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent24"
+              <ng-template #elseBlock
+                ><span style="color: #ff0000">✘ OFFLINE</span></ng-template
               >
-                <a id="box2" class="list-group-item" href="#">Action</a>
-                <a id="box2" class="list-group-item" href="#">Another action</a>
-                <a id="box2" class="list-group-item" href="#"
-                  >Something else here</a
-                >
-              </div>
             </li>
             <br />
           </ul>
@@ -126,95 +58,27 @@
             <li id="head3" class="list-group-item">Cooling Fan</li>
 
             <li id="dhead3" class="list-group-item">
-              <a
-                id="dhead13"
-                href="#"
-                class="list-group-item"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent31"
-                data-bs-toggle="collapse"
-              >
-                Dropdown button 1 <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent31"
-              >
-                <a id="box3" class="list-group-item" href="#">Action</a>
-                <a id="box3" class="list-group-item" href="#">Another action</a>
-                <a id="box3" class="list-group-item" href="#"
-                  >Something else here</a
-                >
-              </div>
+              <span class="dhead11 box">Cabin Temperature</span>
             </li>
 
             <li id="dhead3" class="list-group-item">
-              <a
-                id="dhead13"
-                href="#"
-                class="list-group-item"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent32"
-                data-bs-toggle="collapse"
-              >
-                Dropdown button 2 <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent32"
-              >
-                <a id="box3" class="list-group-item" href="#">Action</a>
-                <a id="box3" class="list-group-item" href="#">Another action</a>
-                <a id="box3" class="list-group-item" href="#"
-                  >Something else here</a
-                >
-              </div>
+              <span>{{ values.coolingFan.value | number: "2.1-2" }}</span>
+              <span class="unit"> °C</span>
             </li>
 
             <li id="dhead3" class="list-group-item">
-              <a
-                id="dhead13"
-                href="#"
-                class="list-group-item"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent33"
-                data-bs-toggle="collapse"
+              <span class="con" style="text-align: left"
+                >CONNECTION STATUS</span
               >
-                Dropdown button 3 <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent33"
-              >
-                <a id="box3" class="list-group-item" href="#">Action</a>
-                <a id="box3" class="list-group-item" href="#">Another action</a>
-                <a id="box3" class="list-group-item" href="#"
-                  >Something else here</a
-                >
-              </div>
             </li>
 
             <li id="dhead3" class="list-group-item">
-              <a
-                id="dhead13"
-                href="#"
-                class="list-group-item"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent34"
-                data-bs-toggle="collapse"
+              <span *ngIf="values.coolingFan.status; else elseBlock"
+                ><span style="color: greenyellow">✓ ONLINE</span></span
               >
-                Dropdown button 4 <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent34"
+              <ng-template #elseBlock
+                ><span style="color: #ff0000">✘ OFFLINE</span></ng-template
               >
-                <a id="box3" class="list-group-item" href="#">Action</a>
-                <a id="box3" class="list-group-item" href="#">Another action</a>
-                <a id="box3" class="list-group-item" href="#"
-                  >Something else here</a
-                >
-              </div>
             </li>
             <br />
           </ul>
@@ -222,149 +86,119 @@
         <!--.......................-->
         <div class="col-md slide s1-4">
           <ul class="list-group" style="text-align: center">
-            <li id="head4" class="list-group-item">An item</li>
+            <li id="head4" class="list-group-item">DISSOLVED OXYGEN</li>
+
+            <li id="dhead4" class="list-group-item">Current Value</li>
 
             <li id="dhead4" class="list-group-item">
-              <a
-                id="dhead14"
-                href="#"
-                class="list-group-item"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent41"
-                data-bs-toggle="collapse"
-              >
-                Dropdown button 1 <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent41"
-              >
-                <a id="box4" class="list-group-item" href="#">Action</a>
-                <a id="box4" class="list-group-item" href="#">Another action</a>
-                <a id="box4" class="list-group-item" href="#"
-                  >Something else here</a
-                >
-              </div>
-            </li>
-
-            <li id="dhead4" class="list-group-item">
-              <a
-                id="dhead14"
-                href="#"
-                class="list-group-item"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent42"
-                data-bs-toggle="collapse"
-              >
-                Dropdown button 2 <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent42"
-              >
-                <a id="box4" class="list-group-item" href="#">Action</a>
-                <a id="box4" class="list-group-item" href="#">Another action</a>
-                <a id="box4" class="list-group-item" href="#"
-                  >Something else here</a
-                >
-              </div>
+              <span>{{ values.disOxygen.value | number: "2.1-2" }}</span
+              ><span class="unit"> mg/L</span>
             </li>
 
             <li id="dhead4" class="list-group-item dhead4">
-              <a
-                id="dhead14"
-                href="#"
-                class="list-group-item dhead14"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent43"
-                data-bs-toggle="collapse"
-              >
-                Dropdown button 3 <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent43"
-              >
-                <a id="box4" class="list-group-item box4" href="#">Action</a>
-                <a id="box4" class="list-group-item box4" href="#"
-                  >Another action</a
-                >
-                <a id="box4" class="list-group-item box4" href="#"
-                  >Something else here</a
-                >
-              </div>
+              <span class="con" style="text-align: left">AIR PUMP STATUS</span>
             </li>
 
             <li id="dhead4" class="list-group-item dhead4">
-              <a
-                id="dhead14"
-                href="#"
-                class="list-group-item dhead14"
-                id="dropdownMenuButton1"
-                data-bs-target="#navbarSupportedContent44"
-                data-bs-toggle="collapse"
+              <span *ngIf="airpump; else elseBlock"
+                ><span style="color: greenyellow">✓ ONLINE</span></span
               >
-                Dropdown button 4 <i class="fas fa-caret-down"></i>
-              </a>
-              <div
-                class="collapse col-md-12 list-group list-group-flush"
-                id="navbarSupportedContent44"
+              <ng-template #elseBlock
+                ><span style="color: #ff0000">✘ OFFLINE</span></ng-template
               >
-                <a id="box4" class="list-group-item box4" href="#">Action</a>
-                <a id="box4" class="list-group-item box4" href="#"
-                  >Another action</a
-                >
-                <a id="box4" class="list-group-item box4" href="#"
-                  >Something else here</a
-                >
-              </div>
             </li>
             <br />
           </ul>
         </div>
         <div class="col-md slide s1-5">
           <ul class="list-group">
-            <li class="list-group-item head4">TURBIDITY</li>
-            <li class="list-group-item dhead4">A second item</li>
-            <li class="list-group-item dhead4">A third item</li>
-            <li class="list-group-item dhead4">A fourth item</li>
-            <li class="list-group-item dhead4">And a fifth one</li>
+            <li class="list-group-item head4">Hpa</li>
+            <li class="list-group-item dhead4">
+              Current Reactor Tank Air pressure
+            </li>
+            <li class="list-group-item dhead4">
+              <span>{{ values.hpa | number: "2.1-2" }}</span
+              ><span class="unit"> mbar</span>
+            </li>
+            <li class="list-group-item dhead4"><p></p></li>
+            <li class="list-group-item dhead4"><p></p></li>
           </ul>
         </div>
         <div class="col-md slide s1-6">
           <ul class="list-group">
-            <li class="list-group-item head4">Temperature</li>
-            <li class="list-group-item dhead4">A second item</li>
-            <li class="list-group-item dhead4">A third item</li>
-            <li class="list-group-item dhead4">A fourth item</li>
-            <li class="list-group-item dhead4">And a fifth one</li>
+            <li class="list-group-item head4">TEMPERATURE</li>
+            <li class="list-group-item dhead4">Tank Temperature</li>
+            <li class="list-group-item dhead4">
+              <span>{{ values.temp.tankTemp | number: "2.1-2" }}</span>
+            </li>
+            <li class="list-group-item dhead4">Cabin Temperature</li>
+            <li class="list-group-item dhead4">
+              {{ values.temp.cabinTemp | number: "2.1-2" }}
+            </li>
+            <li class="list-group-item dhead4">CONNECTION STATUS</li>
+            <li class="list-group-item dhead4">
+              <span *ngIf="values.disOxygen.status; else elseBlock"
+                ><span style="color: greenyellow">✓ ONLINE</span></span
+              >
+              <ng-template #elseBlock
+                ><span style="color: #ff0000">✘ OFFLINE</span></ng-template
+              >
+            </li>
           </ul>
         </div>
         <div class="col-md slide s1-7">
           <ul class="list-group">
-            <li class="list-group-item head4">TURBIDITY</li>
-            <li class="list-group-item dhead4">A second item</li>
-            <li class="list-group-item dhead4">A third item</li>
-            <li class="list-group-item dhead4">A fourth item</li>
-            <li class="list-group-item dhead4">And a fifth one</li>
+            <li class="list-group-item head4">pH</li>
+            <li class="list-group-item dhead4">Current Reading</li>
+            <li class="list-group-item dhead4">
+              <span> {{ values.ph.value }}</span>
+            </li>
+            <li class="list-group-item dhead4">CONNECTION STATUS</li>
+            <li class="list-group-item dhead4">
+              <span *ngIf="values.ph.status; else elseBlock"
+                ><span style="color: greenyellow">✓ ONLINE</span></span
+              >
+              <ng-template #elseBlock
+                ><span style="color: #ff0000">✘ OFFLINE</span></ng-template
+              >
+            </li>
           </ul>
         </div>
         <div class="col-md slide s1-8">
           <ul class="list-group">
-            <li class="list-group-item head4">Hpa</li>
-            <li class="list-group-item dhead4">A second item</li>
-            <li class="list-group-item dhead4">A third item</li>
-            <li class="list-group-item dhead4">A fourth item</li>
-            <li class="list-group-item dhead4">And a fifth one</li>
+            <li class="list-group-item head4">TURBIDITY</li>
+            <li class="list-group-item dhead4">Current Reading</li>
+            <li class="list-group-item dhead4">
+              <span>{{ values.turbidity.value | number: "2.1-2" }}</span
+              ><span class="unit"> NTU</span>
+            </li>
+            <li class="list-group-item dhead4">CONNECTION STATUS</li>
+            <li class="list-group-item dhead4">
+              <span *ngIf="values.ph.status; else elseBlock"
+                ><span style="color: greenyellow">✓ ONLINE</span></span
+              >
+              <ng-template #elseBlock
+                ><span style="color: #ff0000">✘ OFFLINE</span></ng-template
+              >
+            </li>
           </ul>
         </div>
         <div class="col-md slide s1-9">
           <ul class="list-group">
-            <li class="list-group-item head4">uv</li>
-            <li class="list-group-item dhead4">A second item</li>
-            <li class="list-group-item dhead4">A third item</li>
-            <li class="list-group-item dhead4">A fourth item</li>
-            <li class="list-group-item dhead4">And a fifth one</li>
+            <li class="list-group-item head4">UV LAMPS</li>
+            <li class="list-group-item dhead4">Current UV value</li>
+            <li class="list-group-item dhead4">
+              {{ values.uv.value }}<span class="unit"> nm</span>
+            </li>
+            <li class="list-group-item dhead4">CONNECTION STATUS</li>
+            <li class="list-group-item dhead4">
+              <span *ngIf="values.ph.status; else elseBlock"
+                ><span style="color: greenyellow">✓ ONLINE</span></span
+              >
+              <ng-template #elseBlock
+                ><span style="color: #ff0000">✘ OFFLINE</span></ng-template
+              >
+            </li>
           </ul>
         </div>
         <button class="right" (click)="slideRight()">></button>
@@ -372,3 +206,26 @@
     </div>
   </div>
 </body>
+
+<!-- <li id="dhead3" class="list-group-item">
+  <a
+    id="dhead13"
+    href="#"
+    class="list-group-item"
+    id="dropdownMenuButton1"
+    data-bs-target="#navbarSupportedContent31"
+    data-bs-toggle="collapse"
+  >
+    Dropdown button 1 <i class="fas fa-caret-down"></i>
+  </a>
+  <div
+    class="collapse col-md-12 list-group list-group-flush"
+    id="navbarSupportedContent31"
+  >
+    <a id="box3" class="list-group-item" href="#">Action</a>
+    <a id="box3" class="list-group-item" href="#">Another action</a>
+    <a id="box3" class="list-group-item" href="#"
+      >Something else here</a
+    >
+  </div>
+</li> -->

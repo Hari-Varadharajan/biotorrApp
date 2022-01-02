@@ -14,7 +14,7 @@ export class UiPagesComponent implements OnInit {
     private elRef: ElementRef,
     private router: Router,
     private mqtt: MqttService,
-    private auth:AuthService
+    private auth: AuthService
   ) {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation?.extras.state as {
@@ -22,6 +22,7 @@ export class UiPagesComponent implements OnInit {
     };
     this.curSlide = state.slide;
   }
+  airpump: boolean = false;
   values!: Values;
   slides: any;
   btnRight = <HTMLElement>document.querySelector('.right');
@@ -37,7 +38,7 @@ export class UiPagesComponent implements OnInit {
     this.slides = slides;
     this.MaxSlide = this.slides.length;
     this.moveSlide(this.curSlide);
-    
+   
     // this.btnRight.addEventListener('click', this.slideRight);
     // this.btnLeft.addEventListener('click', this.slideLeft);
   }
@@ -174,7 +175,7 @@ export class UiPagesComponent implements OnInit {
       this.moveSlide(this.curSlide);
     }
   }
-  logout(){
+  logout() {
     this.auth.LogoutUser();
   }
 }

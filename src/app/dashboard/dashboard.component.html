@@ -4,9 +4,9 @@
   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
   crossorigin="anonymous"
 />
-
+<button class="btn btn-primary logout" (click)="logout()">Logout</button>
 <div class="box">
-  <div class="container pt-2 pb-4">
+  <div class="container pt-2">
     <div class="row ms-md-5 pe-3">
       <div
         class="col-md me-2 btn p-3"
@@ -80,7 +80,7 @@
           class="val"
           style="font-size: 18px; border-radius: 3px; text-align: center"
         >
-          {{ values.disOxygen | number: "2.1-2"
+          {{ values.disOxygen.value | number: "2.1-2"
           }}<span class="unit"> mg/L</span>
         </p>
       </div>
