@@ -24,24 +24,24 @@
         </div>
         <div class="col-md slide s1-2">
           <ul class="list-group" style="text-align: center">
-            <li id="head2" class="list-group-item">AQI</li>
+            <li id="head2" class="list-group-item head2">AQI</li>
 
-            <li id="dhead2" class="list-group-item">
-              <span class="dhead11 box">Current Reading </span>
+            <li id="dhead2" class="list-group-item dhead2">
+              <span class="dhead21 box">Current Reading </span>
             </li>
 
-            <li id="dhead2" class="list-group-item">
+            <li id="dhead2" class="list-group-item dhead2">
               <span>{{ values.aqi.value }}</span
               ><span class="unit"> RPM</span>
             </li>
 
-            <li id="dhead2" class="list-group-item">
+            <li id="dhead2" class="list-group-item dhead2">
               <span class="con" style="text-align: left"
                 >CONNECTION STATUS</span
               >
             </li>
 
-            <li id="dhead2" class="list-group-item">
+            <li id="dhead2" class="list-group-item dhead2">
               <span *ngIf="values.aqi.status; else elseBlock"
                 ><span style="color: greenyellow">✓ ONLINE</span></span
               >
@@ -55,24 +55,24 @@
         <!-- ---------- -->
         <div class="col-md slide s1-3">
           <ul class="list-group" style="text-align: center">
-            <li id="head3" class="list-group-item">Cooling Fan</li>
+            <li id="head3" class="list-group-item head3">Cooling Fan</li>
 
-            <li id="dhead3" class="list-group-item">
-              <span class="dhead11 box">Cabin Temperature</span>
+            <li id="dhead3" class="list-group-item dhead3">
+              <span class="dhead31 box">Cabin Temperature</span>
             </li>
 
-            <li id="dhead3" class="list-group-item">
+            <li id="dhead3" class="list-group-item dhead3">
               <span>{{ values.coolingFan.value | number: "2.1-2" }}</span>
               <span class="unit"> °C</span>
             </li>
 
-            <li id="dhead3" class="list-group-item">
+            <li id="dhead3" class="list-group-item dhead3">
               <span class="con" style="text-align: left"
                 >CONNECTION STATUS</span
               >
             </li>
 
-            <li id="dhead3" class="list-group-item">
+            <li id="dhead3" class="list-group-item dhead3">
               <span *ngIf="values.coolingFan.status; else elseBlock"
                 ><span style="color: greenyellow">✓ ONLINE</span></span
               >
@@ -86,11 +86,11 @@
         <!--.......................-->
         <div class="col-md slide s1-4">
           <ul class="list-group" style="text-align: center">
-            <li id="head4" class="list-group-item">DISSOLVED OXYGEN</li>
+            <li id="head4" class="list-group-item head4">DISSOLVED OXYGEN</li>
 
-            <li id="dhead4" class="list-group-item">Current Value</li>
+            <li id="dhead4" class="list-group-item dhead4">Current Value</li>
 
-            <li id="dhead4" class="list-group-item">
+            <li id="dhead4" class="list-group-item dhead4">
               <span>{{ values.disOxygen.value | number: "2.1-2" }}</span
               ><span class="unit"> mg/L</span>
             </li>
@@ -112,31 +112,31 @@
         </div>
         <div class="col-md slide s1-5">
           <ul class="list-group">
-            <li class="list-group-item head4">Hpa</li>
-            <li class="list-group-item dhead4">
+            <li class="list-group-item head5">Hpa</li>
+            <li class="list-group-item dhead5">
               Current Reactor Tank Air pressure
             </li>
-            <li class="list-group-item dhead4">
+            <li class="list-group-item dhead5">
               <span>{{ values.hpa | number: "2.1-2" }}</span
               ><span class="unit"> mbar</span>
             </li>
-            <li class="list-group-item dhead4"><p></p></li>
-            <li class="list-group-item dhead4"><p></p></li>
+            <li class="list-group-item dhead5"><p></p></li>
+            <li class="list-group-item dhead5"><p></p></li>
           </ul>
         </div>
         <div class="col-md slide s1-6">
           <ul class="list-group">
-            <li class="list-group-item head4">TEMPERATURE</li>
-            <li class="list-group-item dhead4">Tank Temperature</li>
-            <li class="list-group-item dhead4">
+            <li class="list-group-item head6">TEMPERATURE</li>
+            <li class="list-group-item dhead6">Tank Temperature</li>
+            <li class="list-group-item dhead6">
               <span>{{ values.temp.tankTemp | number: "2.1-2" }}</span>
             </li>
-            <li class="list-group-item dhead4">Cabin Temperature</li>
-            <li class="list-group-item dhead4">
+            <li class="list-group-item dhead6">Cabin Temperature</li>
+            <li class="list-group-item dhead6">
               {{ values.temp.cabinTemp | number: "2.1-2" }}
             </li>
-            <li class="list-group-item dhead4">CONNECTION STATUS</li>
-            <li class="list-group-item dhead4">
+            <li class="list-group-item dhead6">CONNECTION STATUS</li>
+            <li class="list-group-item dhead6">
               <span *ngIf="values.disOxygen.status; else elseBlock"
                 ><span style="color: greenyellow">✓ ONLINE</span></span
               >
@@ -148,13 +148,13 @@
         </div>
         <div class="col-md slide s1-7">
           <ul class="list-group">
-            <li class="list-group-item head4">pH</li>
-            <li class="list-group-item dhead4">Current Reading</li>
-            <li class="list-group-item dhead4">
+            <li class="list-group-item head7">pH</li>
+            <li class="list-group-item dhead7">Current Reading</li>
+            <li class="list-group-item dhead7">
               <span> {{ values.ph.value }}</span>
             </li>
-            <li class="list-group-item dhead4">CONNECTION STATUS</li>
-            <li class="list-group-item dhead4">
+            <li class="list-group-item dhead7">CONNECTION STATUS</li>
+            <li class="list-group-item dhead7">
               <span *ngIf="values.ph.status; else elseBlock"
                 ><span style="color: greenyellow">✓ ONLINE</span></span
               >
@@ -166,14 +166,14 @@
         </div>
         <div class="col-md slide s1-8">
           <ul class="list-group">
-            <li class="list-group-item head4">TURBIDITY</li>
-            <li class="list-group-item dhead4">Current Reading</li>
-            <li class="list-group-item dhead4">
+            <li class="list-group-item head8">TURBIDITY</li>
+            <li class="list-group-item dhead8">Current Reading</li>
+            <li class="list-group-item dhead8">
               <span>{{ values.turbidity.value | number: "2.1-2" }}</span
               ><span class="unit"> NTU</span>
             </li>
-            <li class="list-group-item dhead4">CONNECTION STATUS</li>
-            <li class="list-group-item dhead4">
+            <li class="list-group-item dhead8">CONNECTION STATUS</li>
+            <li class="list-group-item dhead8">
               <span *ngIf="values.ph.status; else elseBlock"
                 ><span style="color: greenyellow">✓ ONLINE</span></span
               >
@@ -185,13 +185,13 @@
         </div>
         <div class="col-md slide s1-9">
           <ul class="list-group">
-            <li class="list-group-item head4">UV LAMPS</li>
-            <li class="list-group-item dhead4">Current UV value</li>
-            <li class="list-group-item dhead4">
+            <li class="list-group-item head9">UV LAMPS</li>
+            <li class="list-group-item dhead9">Current UV value</li>
+            <li class="list-group-item dhead9">
               {{ values.uv.value }}<span class="unit"> nm</span>
             </li>
-            <li class="list-group-item dhead4">CONNECTION STATUS</li>
-            <li class="list-group-item dhead4">
+            <li class="list-group-item dhead9">CONNECTION STATUS</li>
+            <li class="list-group-item dhead9">
               <span *ngIf="values.ph.status; else elseBlock"
                 ><span style="color: greenyellow">✓ ONLINE</span></span
               >
