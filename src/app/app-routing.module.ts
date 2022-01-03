@@ -17,12 +17,12 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'uipages',
     component: UiPagesComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: '**',
