@@ -97,7 +97,7 @@
                 #password="ngModel"
                 minlength="8"
                 maxlength="25"
-                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{8,25}$"
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{0,25}$"
               />
               <div
                 *ngIf="password.touched && !password.valid"
@@ -120,13 +120,14 @@
               </div>
             </div>
             <div *ngIf="password.touched && !password.valid">
+              <div class="myalert" *ngIf="password.errors?.pattern">
+                * should contain alpha-neumaeric with upper and lower case
+              </div>
               <div class="myalert" *ngIf="password.errors?.minlength">
                 * should contain minimum of
                 {{ password.errors?.minlength.requiredLength }} characters
               </div>
-              <div class="myalert" *ngIf="password.errors?.pattern">
-                * should contain alpha-neumaeric with upper and lower case
-              </div>
+              
               <div class="myalert" *ngIf="password.errors?.required">
                 * Password must not be empty
               </div>
