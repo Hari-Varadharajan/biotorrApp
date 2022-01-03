@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const port = 3000;
+const port = process.env.PORT;
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const LocalStrategy = require("passport-local");
@@ -10,6 +10,7 @@ const User = require("./model/user");
 const cors = require("cors");
 const user = require("./routes/user");
 const values = require("./routes/values");
+const path = require("path");
 
 app.use(require("serve-static")(__dirname + "/../../public"));
 app.use(express.urlencoded({ extended: true }));
@@ -38,7 +39,7 @@ app.use("/user", user);
 app.use("/values", values);
 
 app.get("/", (req, res) => {
-  res.send("hello from server");
+  res.sendFile(path.join(__dirname + "/src/index.html"));
 });
 app.listen(port || 3000, (req, res) => {
   console.log("Server is running on..." + port);
