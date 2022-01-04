@@ -12,7 +12,7 @@ export class MqttService {
   mqttbroker = 'broker.hivemq.com';
   private user_id!: ObjectId;
   values!: Values;
-  private _saveUrl = 'http://localhost:3000/values/save';
+  private _saveUrl = 'https://biotorr.herokuapp.com/values/save';
   private client: any;
   constructor(private http: HttpClient, private auth: AuthService) {
     this.client = new Paho.MQTT.Client(
