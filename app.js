@@ -39,9 +39,9 @@ app.use("/user", user);
 app.use("/values", values);
 app.use(express.static(__dirname + "/dist/biotorrApp"));
 
-app.get("/", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname + "/dist/biotorrApp/index.html"));
 });
-app.listen(port || 3000, (req, res) => {
-  console.log("Server is running on..." + port);
+app.listen(process.env.PORT || 3000, (req, res) => {
+  console.log("Server is running on..." + process.env.PORT);
 });
