@@ -5,7 +5,7 @@ const valueSchema = new Schema({
   ph: { value: Number, status: Boolean },
   temp: { tankTemp: Number, cabinTemp: Number, status: Boolean },
   turbidity: { value: Number, status: Boolean },
-  disOxygen: Number,
+  disOxygen: { value: Number, status: Boolean },
   agitation: Number,
   coolingFan: { value: Number, status: Boolean },
   aqi: { value: Number, status: Boolean },
