@@ -11,6 +11,7 @@ import { IMqttMessage, MqttService as mqttService } from 'ngx-mqtt';
 @Injectable({
   providedIn: 'root',
 })
+
 export class MqttService implements OnInit {
   mqttbroker = 'broker.hivemq.com';
   private user_id!: ObjectId;
@@ -109,6 +110,7 @@ export class MqttService implements OnInit {
   // }
 
   // }
+  
   valueCheck() {
     if (this.values.coolingFan.value > 38) {
       this.values.coolingFan.status = true;
