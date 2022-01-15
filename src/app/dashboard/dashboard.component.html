@@ -38,7 +38,7 @@
         </p>
         <p class="con" style="text-align: left">
           CONNECTION STATUS:
-          <span *ngIf="values.uv.status; else elseBlock"
+          <span *ngIf="values.aqi.status; else elseBlock"
             ><span style="color: greenyellow">✓ ONLINE</span></span
           >
           <ng-template #elseBlock
@@ -167,7 +167,7 @@
         </p>
         <p class="con" style="text-align: left">
           CONNECTION STATUS:
-          <span *ngIf="values.uv.status; else elseBlock"
+          <span *ngIf="values.ph.status; else elseBlock"
             ><span style="color: greenyellow">✓ ONLINE</span></span
           >
           <ng-template #elseBlock
