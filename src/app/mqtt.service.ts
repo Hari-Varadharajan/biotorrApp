@@ -45,11 +45,12 @@ export class MqttService implements OnInit {
     };
     this.subscribeToTopic();
   }
+  topicName = 'home/kitchen/temperature';
   ngOnInit(): void {}
   topic(): Observable<IMqttMessage> {
     // let topicName = `/${this.endpoint}/${deviceId}`;
-    let topicName = 'home/kitchen/temperature';
-    return this.mqtt.observe(topicName);
+
+    return this.mqtt.observe(this.topicName);
   }
   private subscribeToTopic() {
     this.subscription = this.topic().subscribe((data: IMqttMessage) => {
