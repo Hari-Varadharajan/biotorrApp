@@ -19,6 +19,7 @@ export class MqttService implements OnInit {
   subscription: Subscription = new Subscription();
   private _saveUrl = 'https://biotorr.herokuapp.com/values/save';
   private client: any;
+  topicName = [''];
   constructor(
     private http: HttpClient,
     private auth: AuthService,
@@ -44,45 +45,116 @@ export class MqttService implements OnInit {
       hpa: 0,
       coolingFan: { value: 0, status: false },
     };
+    this.topicNames()
     this.subscribeToTopic();
   }
-  topicName = 'home/kitchen/temperature';
+   topicNames()
+   {
+    this.topicName[0]='kardle/biotorr/agitation'
+    this.topicName[1]='kardle/biotorr/aqi'
+    this.topicName[2]='kardle/biotorr/aqi/status'
+    this.topicName[3]='kardle/biotorr/coolingFan'
+    this.topicName[4]='kardle/biotorr/disOxygen'
+    this.topicName[5]='kardle/biotorr/hpa'
+    this.topicName[6]='kardle/biotorr/tankTemp'
+    this.topicName[7]='kardle/biotorr/cabinTemp'
+    this.topicName[8]='kardle/biotorr/temp/status'
+    this.topicName[9]='kardle/biotorr/ph'
+    this.topicName[10]='kardle/biotorr/turbidity'
+    this.topicName[11]='kardle/biotorr/turbidity/status'
+    this.topicName[12]='kardle/biotorr/uv/status'
+    this.topicName[13]='kardle/biotorr/coolingFan/status'
+    this.topicName[14]='kardle/biotorr/ph/status'
+   }
   ngOnInit(): void {}
-  topic(): Observable<IMqttMessage> {
+  topic( i:number): Observable<IMqttMessage> {
     // let topicName = `/${this.endpoint}/${deviceId}`;
-
-    return this.mqtt.observe(this.topicName);
+    return this.mqtt.observe(this.topicName[i]);
   }
   private subscribeToTopic() {
-    this.subscription = this.topic().subscribe((data: IMqttMessage) => {
-      let message = JSON.parse(data.payload.toString());
-      console.log(message);
-      //this.events.push(item);
-      this.values.agitation = Number(message);
-      this.values.disOxygen.value = Number(message);
-      this.values.aqi.value = Number(message);
-      //this.values.aqi.status = message.payloadString;
-
-      this.values.hpa = Number(message);
-      this.values.temp.tankTemp = Number(message);
-      this.values.temp.cabinTemp = Number(message);
-      //this.values.temp.status = message.payloadString;
-      this.values.ph.value = Number(message);
-      //this.values.ph.status = message.payloadString;
-      //this.values.coolingFan.status = message.payloadString;
-      this.values.coolingFan.value = Number(message);
-
-      this.values.turbidity.value = Number(message);
-      //this.values.turbidity.status = message.payloadString;
-      //this.values.uv.status = message.payloadString;
-      this.valueCheck();
-      this.user_id = this.auth.getUserId();
-      //console.log(this.user_id);
-      this.saveValues(this.values, this.user_id).subscribe(
-        (res) => console.log(res),
-        (err) => console.log(err)
-      );
-    });
+    for(let i=0;i<this.topicName.length;i++)
+    {
+      this.subscription = this.topic(i).subscribe((data: IMqttMessage) => {
+        let message = JSON.parse(data.payload.toString());
+        console.log(message);
+        //this.events.push(item);
+        if(i===0)
+        {
+          this.values.agitation = Number(message);
+        }
+        else if(i===1)
+        {
+          this.values.aqi.value = Number(message);
+        }
+        else if(i===2)
+        { 
+          this.values.aqi.status = message;
+        //this.values.aqi.status = message.payloadString;
+        }
+        else if(i===3)
+        {
+          this.values.coolingFan.value = Number(message); 
+        }
+        else if(i===4)
+        {
+          this.values.disOxygen.value = Number(message);
+        }
+        else if(i===5)
+        {
+          this.values.hpa = Number(message);
+        }
+        else if(i===6)
+        {
+          this.values.temp.tankTemp = Number(message); 
+        }
+        else if(i===7)
+        {
+          this.values.temp.cabinTemp = Number(message);
+        }
+        else if(i===8)
+        {
+          this.values.temp.status = message; 
+          //this.values.temp.status = message.payloadString; 
+        }
+        else if(i===9)
+        {
+          this.values.ph.value = Number(message);
+        }
+        else if(i===10)
+        {
+          this.values.turbidity.value = Number(message);
+        }
+        else if(i===11)
+        {
+          this.values.turbidity.status = message;
+          //this.values.turbidity.status = message.payloadString;
+        }
+        else if(i===12)
+        {
+          this.values.uv.status = message;
+          //this.values.uv.status = message.payloadString;
+        }
+        else if(i===13)
+        {
+          this.values.coolingFan.status = message;
+          //this.values.coolingFan.status = message.payloadString;
+        }
+        else if(i===14)
+        {
+          this.values.ph.status = message;
+          //this.values.ph.status = message.payloadString;
+        }
+        
+        this.valueCheck();
+        this.user_id = this.auth.getUserId();
+        //console.log(this.user_id);
+        this.saveValues(this.values, this.user_id).subscribe(
+          (res) => console.log(res),
+          (err) => console.log(err)
+        );
+      });
+    }
+    
   }
   ngOnDestroy(): void {
     if (this.subscription) {
@@ -109,7 +181,6 @@ export class MqttService implements OnInit {
   // if (message.destinationName.indexOf('wind_speed') !== -1) {
   //   this.windSpeed = Number(message.payloadString);
   // }
-
   // }
   
   valueCheck() {
