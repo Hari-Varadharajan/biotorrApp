@@ -7,9 +7,9 @@ import { ObjectId } from 'mongoose';
 })
 export class AuthService {
   private user_id!: ObjectId;
-  private _regUrl = 'https://biotorr.herokuapp.com/user/signup';
-  private _loginUrl = 'https://biotorr.herokuapp.com/user/signin';
-  private _logoutUrl = 'https://biotorr.herokuapp.com/user/signout';
+  private _regUrl = '/user/signup';
+  private _loginUrl = '/user/signin';
+  private _logoutUrl = '/user/signout';
   constructor(private http: HttpClient, private route: Router) {}
   registerUser(user: object) {
     return this.http.post(this._regUrl, user, { responseType: 'text' });

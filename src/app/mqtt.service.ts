@@ -18,7 +18,7 @@ export class MqttService implements OnInit {
 
   subscription: Subscription = new Subscription();
   //private _saveUrl = 'https://biotorr.herokuapp.com/values/save';
-  private _saveUrl = 'http://localhost:3000/values/save';
+  private _saveUrl = '/values/save';
   private client: any;
 
   constructor(
