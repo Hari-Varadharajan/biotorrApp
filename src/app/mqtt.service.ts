@@ -21,7 +21,7 @@ export class MqttService implements OnInit {
   //private _saveUrl = 'https://biotorr.herokuapp.com/values/save';
   private _saveUrl = '/values/save';
   private client: any;
-  topicName = ['']
+  topicName = [''];
   constructor(
     private http: HttpClient,
     private auth: AuthService,
@@ -76,7 +76,7 @@ export class MqttService implements OnInit {
     for (let i = 0; i < this.topicName.length; i++) {
       this.subscription = this.topic(i).subscribe((data: IMqttMessage) => {
         let message = JSON.parse(data.payload.toString());
-        console.log(message);
+        //console.log(message);
         //this.events.push(item);
         if (i === 0) {
           this.values.agitation = Number(message);
@@ -119,6 +119,7 @@ export class MqttService implements OnInit {
         this.valueCheck();
         this.user_id = this.auth.getUserId();
         //console.log(this.user_id);
+        console.log(this.values);
         this.saveValues(this.values, this.user_id).subscribe(
           (res) => console.log(res),
           (err) => console.log(err)
