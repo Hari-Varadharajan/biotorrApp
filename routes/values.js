@@ -8,11 +8,34 @@ router.get("/save", (req, res) => {
   //console.log(request.user);
 });
 router.post("/save", async (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   const { values, user_id } = req.body;
-  const { ph, turbidity } = values;
+  const {
+    ph,
+    turbidity,
+    temp,
+    disOxygen,
+    agitation,
+    coolingFan,
+    aqi,
+    hpa,
+    uv,
+  } = values;
+  //console.log(temp, disOxygen, agitation, coolingFan, aqi, hpa, uv);
   const createdOn = new Date();
-  const value = new Values({ ph, turbidity, createdOn, user_id });
+  const value = new Values({
+    ph,
+    turbidity,
+    temp,
+    disOxygen,
+    agitation,
+    coolingFan,
+    aqi,
+    hpa,
+    uv,
+    createdOn,
+    user_id,
+  });
   await value.save();
 });
 
