@@ -21,7 +21,7 @@ export class MqttService implements OnInit {
   //private _saveUrl = 'https://biotorr.herokuapp.com/values/save';
   private _saveUrl = '/values/save';
   private client: any;
-
+  topicName = ['']
   constructor(
     private http: HttpClient,
     private auth: AuthService,
