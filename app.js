@@ -12,12 +12,28 @@ const user = require("./routes/user");
 const values = require("./routes/values");
 const path = require("path");
 
+const corsOptions = {
+  origin: "http://localhost:4200",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+
 app.use(require("serve-static")(__dirname + "/../../public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
+app.use(function (req, res, next) {
+  //Enabling CORS
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization"
+  );
+  next();
+});
 app.use(
   session({
     secret: "keyboard cat",
@@ -38,8 +54,10 @@ passport.deserializeUser(User.deserializeUser());
 app.use("/user", user);
 app.use("/values", values);
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname + "/src/index.html"));
+app.use(express.static(__dirname + "/dist/biotorrApp"));
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/dist/biotorrApp/index.html"));
 });
 app.listen(port || 3000, (req, res) => {
   console.log("Server is running on..." + port);
