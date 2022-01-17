@@ -163,7 +163,7 @@
           class="val"
           style="font-size: 18px; border-radius: 3px; text-align: center"
         >
-          {{ values.ph.value }}
+          {{ values.ph.value | number: "1.0-0" }}
         </p>
         <p class="con" style="text-align: left">
           CONNECTION STATUS:

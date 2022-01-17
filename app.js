@@ -13,7 +13,7 @@ const values = require("./routes/values");
 const path = require("path");
 
 const corsOptions = {
-  origin: "http://localhost:4200",
+  origin: "http://localhost:8080",
   credentials: true,
   optionSuccessStatus: 200,
 };
