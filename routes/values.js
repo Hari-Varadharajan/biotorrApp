@@ -36,7 +36,12 @@ router.post("/save", async (req, res) => {
     createdOn,
     user_id,
   });
-  await value.save();
+  try {
+    await value.save();
+    res.status(200).json({ statusCode: 200, message: "success" });
+  } catch (e) {
+    res.status(400).json({ message: e });
+  }
 });
 
 module.exports = router;
