@@ -21,7 +21,7 @@ export class MqttService implements OnInit {
   //private _saveUrl = 'https://biotorr.herokuapp.com/values/save';
   private _saveUrl = '/values/save';
   private client: any;
-  topicName = [''];
+  topicName = ['']; //topic array
   constructor(
     private http: HttpClient,
     private auth: AuthService,
@@ -72,61 +72,211 @@ export class MqttService implements OnInit {
     // let topicName = `/${this.endpoint}/${deviceId}`;
     return this.mqtt.observe(this.topicName[i]);
   }
-  private subscribeToTopic() {
-    for (let i = 0; i < this.topicName.length; i++) {
-      this.subscription = this.topic(i).subscribe((data: IMqttMessage) => {
-        let message = JSON.parse(data.payload.toString());
-        //console.log(message);
-        //this.events.push(item);
-        if (i === 0) {
-          this.values.agitation = Number(message);
-        } else if (i === 1) {
-          this.values.aqi.value = Number(message);
-        } else if (i === 2) {
-          this.values.aqi.status = message;
-          //this.values.aqi.status = message.payloadString;
-        } else if (i === 3) {
-          this.values.coolingFan.value = Number(message);
-        } else if (i === 4) {
-          this.values.disOxygen.value = Number(message);
-        } else if (i === 5) {
-          this.values.hpa = Number(message);
-        } else if (i === 6) {
-          this.values.temp.tankTemp = Number(message);
-        } else if (i === 7) {
-          this.values.temp.cabinTemp = Number(message);
-        } else if (i === 8) {
-          this.values.temp.status = message;
-          //this.values.temp.status = message.payloadString;
-        } else if (i === 9) {
-          this.values.ph.value = Number(message);
-        } else if (i === 10) {
-          this.values.turbidity.value = Number(message);
-        } else if (i === 11) {
-          this.values.turbidity.status = message;
-          //this.values.turbidity.status = message.payloadString;
-        } else if (i === 12) {
-          this.values.uv.status = message;
-          //this.values.uv.status = message.payloadString;
-        } else if (i === 13) {
-          this.values.coolingFan.status = message;
-          //this.values.coolingFan.status = message.payloadString;
-        } else if (i === 14) {
-          this.values.ph.status = message;
-          //this.values.ph.status = message.payloadString;
-        }
 
-        this.valueCheck();
-        this.user_id = this.auth.getUserId();
-        //console.log(this.user_id);
-        console.log(this.values);
-        this.saveValues(this.values, this.user_id).subscribe(
-          (res) => console.log(res),
-          (err) => console.log(err)
-        );
-      });
-    }
+  private subscribeToTopic() {
+    //agitation
+    this.subscription = this.topic(0).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.agitation = Number(message);
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
+    //aqi
+    this.subscription = this.topic(1).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.aqi.value = Number(message);
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
+    //aqi status
+    this.subscription = this.topic(2).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.aqi.status = message;
+      //this.values.aqi.status = message.payloadString;
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
+    //cooling fan
+    this.subscription = this.topic(3).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.coolingFan.value = Number(message);
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
+    //dissolved oxygen
+    this.subscription = this.topic(4).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.disOxygen.value = Number(message);
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
+    // hpa
+    this.subscription = this.topic(5).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.hpa = Number(message);
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
+    //tanktemp
+    this.subscription = this.topic(6).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.temp.tankTemp = Number(message);
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
+    //cabin temp
+    this.subscription = this.topic(7).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.temp.cabinTemp = Number(message);
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
+    //temp status
+    this.subscription = this.topic(8).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.temp.status = message;
+        //this.values.temp.status = message.payloadString;
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
+    // ph
+    this.subscription = this.topic(9).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.ph.value = Number(message);
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
+    //turbidity
+    this.subscription = this.topic(10).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.turbidity.value = Number(message);
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
+    // turbidity status
+    this.subscription = this.topic(11).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.turbidity.status = message;
+        //this.values.turbidity.status = message.payloadString;
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
+    //uv status
+    this.subscription = this.topic(12).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.uv.status = message;
+        //this.values.uv.status = message.payloadString;
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
+    // cooling fan status
+    this.subscription = this.topic(13).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.coolingFan.status = message;
+        //this.values.coolingFan.status = message.payloadString;
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
+    //ph status
+    this.subscription = this.topic(14).subscribe((data: IMqttMessage) => {
+      let message = JSON.parse(data.payload.toString());
+      this.values.ph.status = message;
+      //this.values.ph.status = message.payloadString;
+      this.valueCheck();
+      this.user_id = this.auth.getUserId();
+      //console.log(this.user_id);
+      console.log(this.values);
+      this.saveValues(this.values, this.user_id).subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
+    });
   }
+
   ngOnDestroy(): void {
     if (this.subscription) {
       this.subscription.unsubscribe();
@@ -176,3 +326,63 @@ export class MqttService implements OnInit {
     //console.log('hello');
   }
 }
+
+
+
+
+
+// private subscribeToTopic() {
+//   for (let i = 0; i < this.topicName.length; i++) {
+//     this.subscription = this.topic(i).subscribe((data: IMqttMessage) => {
+//       let message = JSON.parse(data.payload.toString());
+//       //console.log(message);
+//       //this.events.push(item);
+//       if (i === 0) {
+//         this.values.agitation = Number(message);
+//       } else if (i === 1) {
+//         this.values.aqi.value = Number(message);
+//       } else if (i === 2) {
+//         this.values.aqi.status = message;
+//         //this.values.aqi.status = message.payloadString;
+//       } else if (i === 3) {
+//         this.values.coolingFan.value = Number(message);
+//       } else if (i === 4) {
+//         this.values.disOxygen.value = Number(message);
+//       } else if (i === 5) {
+//         this.values.hpa = Number(message);
+//       } else if (i === 6) {
+//         this.values.temp.tankTemp = Number(message);
+//       } else if (i === 7) {
+//         this.values.temp.cabinTemp = Number(message);
+//       } else if (i === 8) {
+//         this.values.temp.status = message;
+//         //this.values.temp.status = message.payloadString;
+//       } else if (i === 9) {
+//         this.values.ph.value = Number(message);
+//       } else if (i === 10) {
+//         this.values.turbidity.value = Number(message);
+//       } else if (i === 11) {
+//         this.values.turbidity.status = message;
+//         //this.values.turbidity.status = message.payloadString;
+//       } else if (i === 12) {
+//         this.values.uv.status = message;
+//         //this.values.uv.status = message.payloadString;
+//       } else if (i === 13) {
+//         this.values.coolingFan.status = message;
+//         //this.values.coolingFan.status = message.payloadString;
+//       } else if (i === 14) {
+//         this.values.ph.status = message;
+//         //this.values.ph.status = message.payloadString;
+//       }
+
+//       this.valueCheck();
+//       this.user_id = this.auth.getUserId();
+//       //console.log(this.user_id);
+//       console.log(this.values);
+//       this.saveValues(this.values, this.user_id).subscribe(
+//         (res) => console.log(res),
+//         (err) => console.log(err)
+//       );
+//     });
+//   }
+// }
