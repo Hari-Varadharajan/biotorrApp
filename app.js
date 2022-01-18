@@ -26,10 +26,7 @@ app.use(express.json());
 app.use(cors(corsOptions));
 app.use(function (req, res, next) {
   //Enabling CORS
-  res.header(
-    "Access-Control-Allow-Origin",
-    "http://localhost:8080/values/save"
-  );
+  res.header("Access-Control-Allow-Origin", "/values/save");
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
   res.header(
     "Access-Control-Allow-Headers",
